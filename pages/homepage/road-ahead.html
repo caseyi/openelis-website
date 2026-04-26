@@ -1,0 +1,92 @@
+<!--
+  Homepage band: The Road Ahead (Phase 3.3)
+  Insertion point: between existing partners/deployments band and the footer.
+  Dependencies: pages/homepage/whats-new.html sits ABOVE this in reading order.
+  Visual tokens: matches docs/design-conventions.md (teal #00695c primary, orange #e65100 CTA, pill badges from roadmap-page-spec.md §3).
+-->
+
+<section style="padding: 80px 20px; background: linear-gradient(180deg, #ffffff 0%, #f0f7f6 100%); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+  <div style="max-width: 1200px; margin: 0 auto;">
+
+    <!-- Heading -->
+    <div style="text-align: center; margin-bottom: 48px;">
+      <h2 style="font-size: 32px; font-weight: 600; color: #1a1a1a; margin: 0 0 12px 0; line-height: 1.2;">
+        The Road Ahead
+      </h2>
+      <p style="font-size: 16px; color: #555555; margin: 0 auto; max-width: 640px; line-height: 1.6;">
+        OpenELIS is built in the open. Here's what's in active development right now &mdash; and where partners can shape what ships next.
+      </p>
+    </div>
+
+    <!-- Three compact roadmap cards -->
+    <div style="display: flex; flex-wrap: wrap; gap: 24px; justify-content: center; margin-bottom: 48px;">
+
+      <!-- Card 1: Validation v2/v3 (Funded) -->
+      <div style="flex: 1 1 300px; max-width: 360px; background: #ffffff; border-radius: 12px; padding: 28px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: transform 0.2s, box-shadow 0.2s;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 12px;">
+          <h3 style="font-size: 18px; font-weight: 600; color: #1a1a1a; margin: 0; line-height: 1.3;">
+            Validation v2 / v3
+          </h3>
+          <span style="display: inline-block; padding: 4px 12px; background: #00695c; color: #ffffff; border-radius: 999px; font-size: 12px; font-weight: 600; white-space: nowrap;">
+            &#x1F7E2; Funded
+          </span>
+        </div>
+        <p style="font-size: 14px; color: #555555; line-height: 1.5; margin: 0 0 16px 0;">
+          A modernized validation workflow with clearer rules, better audit trails, and a faster reviewer experience.
+        </p>
+        <a href="/roadmap/#validation-v2"
+           style="display: inline-block; font-size: 13px; color: #00695c; text-decoration: none; font-weight: 600;">
+          <span style="display: block;">Learn more &rarr;</span>
+        </a>
+      </div>
+
+      <!-- Card 2: FHIR Catalog Subscription (Backlog as of 2026-04-26 — was previously memoed as Funded; Jira reality is Backlog. Casey to confirm if funded but not yet kicked off, or change badge.) -->
+      <div style="flex: 1 1 300px; max-width: 360px; background: #ffffff; border-radius: 12px; padding: 28px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: transform 0.2s, box-shadow 0.2s;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 12px;">
+          <h3 style="font-size: 18px; font-weight: 600; color: #1a1a1a; margin: 0; line-height: 1.3;">
+            FHIR Catalog Subscription
+          </h3>
+          <span style="display: inline-block; padding: 4px 12px; background: #757575; color: #ffffff; border-radius: 999px; font-size: 12px; font-weight: 600; white-space: nowrap;">
+            &#x26AA; Scoped
+          </span>
+        </div>
+        <p style="font-size: 14px; color: #555555; line-height: 1.5; margin: 0 0 16px 0;">
+          Orderable test catalogs synced via FHIR Subscription &mdash; EUCAST breakpoints, national reference panels, kept in lockstep without manual re-entry.
+        </p>
+        <a href="/roadmap/#fhir-catalog"
+           style="display: inline-block; font-size: 13px; color: #00695c; text-decoration: none; font-weight: 600;">
+          <span style="display: block;">Learn more &rarr;</span>
+        </a>
+      </div>
+
+      <!-- Card 3: Blood Bank (Seeking Sponsor) -->
+      <div style="flex: 1 1 300px; max-width: 360px; background: #ffffff; border-radius: 12px; padding: 28px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: transform 0.2s, box-shadow 0.2s;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 12px;">
+          <h3 style="font-size: 18px; font-weight: 600; color: #1a1a1a; margin: 0; line-height: 1.3;">
+            Blood Bank
+          </h3>
+          <span style="display: inline-block; padding: 4px 12px; background: #b71c1c; color: #ffffff; border-radius: 999px; font-size: 12px; font-weight: 600; white-space: nowrap;">
+            &#x1F534; Seeking sponsor
+          </span>
+        </div>
+        <p style="font-size: 14px; color: #555555; line-height: 1.5; margin: 0 0 16px 0;">
+          Donor management, crossmatch, and component tracking. Scoped and ready to build &mdash; awaiting a partner to fund.
+        </p>
+        <a href="/contact/?capability=blood-bank"
+           style="display: inline-block; font-size: 13px; color: #e65100; text-decoration: none; font-weight: 600;">
+          <span style="display: block;">Sponsor this capability &rarr;</span>
+        </a>
+      </div>
+
+    </div>
+
+    <!-- CTA to full roadmap -->
+    <div style="text-align: center;">
+      <a href="/roadmap/"
+         style="display: inline-block; padding: 14px 32px; background: #e65100; color: #ffffff; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 16px; box-shadow: 0 2px 8px rgba(230,81,0,0.25);">
+        <span style="display: block;">See the full roadmap &rarr;</span>
+      </a>
+    </div>
+
+  </div>
+</section>
