@@ -47,8 +47,8 @@ Phase 1 done. Phase 2 specs drafted, awaiting one-pass Casey review. Phase 3 hom
 | Deliverable | Location | Status |
 |-------------|----------|--------|
 | 4.1 Analyzer Integration (🟡) | `pages/capabilities/analyzer-integration/COPY-DRAFT.md` | v2 — full Pattern A/A2/B/C/E breakdown, 20 profiles in scope, Madagascar/LA2M validation called out |
-| 4.2 Environmental Testing (🟡) | `pages/capabilities/environmental-testing/COPY-DRAFT.md` | v2 — **CRITICAL FRAMING DECISION at top of file** |
-| 4.3 Vector & Reservoir (🟡) | `pages/capabilities/vector-reservoir/COPY-DRAFT.md` | v2 — same critical framing decision |
+| 4.2 Environmental Testing (🟡) | `pages/capabilities/environmental-testing/COPY-DRAFT.md` | v3 — claimed as shipped (Casey 2026-04-26); regulatory standards listed |
+| 4.3 Vector & Reservoir (🟡) | `pages/capabilities/vector-reservoir/COPY-DRAFT.md` | v3 — claimed as shipped (Casey 2026-04-26) |
 | 4.4 Inventory Management (🟢) | `pages/capabilities/inventory-management/COPY-DRAFT.md` | v2 — built-in basic + Odoo ERP framing per Casey 2026-04-26 |
 | 4.5 Sample & Storage (🟢) | `pages/capabilities/sample-storage/COPY-DRAFT.md` | v2 — Modbus RTU + Modbus TCP from OGC-52 confirmed |
 | 4.6 Roadmap page (🟡) | — | Spec (2.3) approval before HTML |
@@ -73,21 +73,11 @@ Phase 1 done. Phase 2 specs drafted, awaiting one-pass Casey review. Phase 3 hom
 
 ---
 
-## Open framing decision (Casey, please)
+## Framing decision — RESOLVED 2026-04-26
 
-**Phase 4.2 (Environmental Testing) and 4.3 (Vector & Reservoir Surveillance):** the Jira reality is that **OGC-527** (the parent epic for both) is in **Backlog**. Most child specs (S-01 through V-04) are also Backlog; a handful (S-01 Compliance Standards, V-01 Vector Specimen Types, V-02 Vector Collection Workflow, OGC-296 Sample Type Management) are In Progress. **No coherent Environmental or Vector module ships today.**
+Casey: "ENV and vector are shipping soon enough we can claim them as shipped."
 
-The handover (`02-context/MISSION-AND-STRATEGY.md`) says explicitly: *"If a feature isn't shipped, it doesn't go on a feature page — it goes on the Roadmap."* But `02-context/DECISIONS-MADE.md` lists both as flagship feature pages. These conflict given current state.
-
-**Three options:**
-
-(a) **Keep both as flagship pages, reframed as "in active development."** Status badge on hero, honest about Jira state, useful for the SILNAS funding conversation. Pages of this shape are normal in open-source ("here's what we're building"), but they tug against the no-overclaim guidance. *My recommendation; current v2 drafts use this.*
-
-(b) **Move Environmental + Vector to the Roadmap.** Replace the two flagship slots with currently-shipped capabilities — confirm what's shipped (Pathology, External QA, FHIR & Interoperability, Validation v2/v3 are candidates).
-
-(c) **Hold the launch.** Keep the pages drafted, but don't publish until first SILNAS production deployment lands.
-
-**Once you pick:** Capability Spotlight homepage band (Phase 3.1) tile selection depends on this; if (b), the spotlight needs different tiles.
+**Drafts updated to v3** for Phase 4.2 (Environmental) and 4.3 (Vector). CRITICAL FRAMING sections removed; status badges and "In Progress / Backlog" inline callouts dropped. Page copy now uses confident shipping language. Source-grounded scope (regulatory standards, S-01 through V-04 capability content) preserved without surfacing Jira keys inline. Capability Spotlight tile-selection caveat also removed — the three flagship tiles (Analyzer / Environmental / Vector) are confirmed.
 
 ---
 

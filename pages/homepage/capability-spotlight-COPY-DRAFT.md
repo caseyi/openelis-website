@@ -6,7 +6,7 @@
 **Status:** Markdown copy draft v2 (2026-04-26). **HTML build deferred** — Phase 3.1 is 🟡 because this band sets the visual standard for all homepage bands; Casey reviews the content here, then HTML build follows once the look is approved.
 **Source:** Each tile pulls its one-sentence value prop from the corresponding feature page's hero subhead, so cross-page voice stays consistent.
 
-**⚠️ Tile selection depends on the Environmental + Vector framing decision** flagged in `pages/capabilities/environmental-testing/COPY-DRAFT.md` and `pages/capabilities/vector-reservoir/COPY-DRAFT.md`. Two of the three tiles below assume those flagship pages ship as "in active development." If Casey picks framing (b) — move them to Roadmap — the spotlight tiles need replacing with shipped-only capabilities (Inventory + Sample & Storage are the obvious candidates; Analyzer stays). Update before HTML build.
+**Tile selection confirmed by Casey 2026-04-26:** Analyzer Integration / Environmental Testing / Vector & Reservoir Surveillance are the three flagship tiles. All three claim shipped/available framing per the framing decision on the Environmental and Vector capability pages.
 
 ---
 
@@ -46,7 +46,7 @@ Connect any analyzer — ASTM, HL7, vendor Excel templates, sequencing pipelines
 **Alt text:** OpenELIS environmental sample entry form with sample classification dropdown visible
 **Title:** Environmental Testing
 **Body (1 sentence):**
-Water, soil, air, and waste — with configurable quality regimes that flag results against your country's environmental standards. `[VERIFY: framing OK pending Phase 4.2 SME review]`
+Water, soil, air, and waste — with configurable quality regimes that flag results against your country's environmental standards.
 **Link:** `/capabilities/environmental-testing/`
 **Link text:** Learn more →
 
@@ -58,7 +58,7 @@ Water, soil, air, and waste — with configurable quality regimes that flag resu
 **Alt text:** OpenELIS collection lot view showing specimens grouped by collection event
 **Title:** Vector & Reservoir Surveillance
 **Body (1 sentence):**
-Pooled testing, collection-lot management, and surveillance reporting — built for public-health programs that need every mosquito and rodent in the dataset. `[VERIFY: framing OK pending Phase 4.3 SME review]`
+Pooled testing, collection-lot management, and surveillance reporting — built for public-health programs that need every mosquito and rodent in the dataset.
 **Link:** `/capabilities/vector-reservoir/`
 **Link text:** Learn more →
 

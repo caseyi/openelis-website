@@ -2,34 +2,21 @@
 
 **Phase:** 4.3
 **Target URL:** `/capabilities/vector-reservoir/`
-**Status:** Copy draft v2 (2026-04-26) — markdown form, awaiting Phase 2.2 template approval before HTML build.
-**Source:** OGC-527 epic + child specs V-01 through V-04 (and addenda) + handover packet.
+**Status:** Copy draft v3 (2026-04-26) — markdown form, awaiting Phase 2.2 template approval before HTML build. Framing approved by Casey 2026-04-26: claim as shipping / available, not "in active development."
+**Source:** OGC-527 epic + child specs V-01 through V-04 (and addenda V-04b) + handover packet.
 
 ---
 
-## ⚠️ CRITICAL FRAMING — same decision as Environmental Testing
-
-The Vector specs (V-01 through V-04 and addenda) sit under the same OGC-527 parent epic. Status as of 2026-04-26:
-
-- **In Progress:** V-01 Vector Specimen Types & Taxonomy (OGC-555), V-02 Vector Collection Workflow + CollectionLot (OGC-581)
-- **Backlog:** V-03 Vector Testing & Identification (OGC-582), V-04 Vector Surveillance Reporting (OGC-585), V-04b Vector Host Index — Blood Meal Analysis (OGC-604)
-
-**Vector & Reservoir Surveillance is not yet shipped as a coherent capability.** Same framing decision as Environmental Testing — see that draft's CRITICAL FRAMING section. **Casey to pick (a), (b), or (c).** The draft below uses framing (a) — "in active development with confirmed deployment partner."
-
----
-
-## Hero (under framing (a))
+## Hero
 
 **H1:** Vector and reservoir surveillance, in your LIMS.
 
 **Subhead:**
-Pooled testing, collection-lot management, species reference data, and the surveillance reporting your ministry actually files. Built with the Indonesia SILNAS partnership; tracked publicly across V-01 to V-04 in our open issue tracker.
-
-**Status badge inline below subhead:** "🟡 In active development · OGC-527" (matches Environmental Testing).
+Pooled testing, collection-lot management, species reference data, and the surveillance reporting your ministry actually files. Built for public-health programs that need every mosquito, rodent, and flea in the dataset — not in a parallel spreadsheet.
 
 **Breadcrumb:** Home › Capabilities › Vector & Reservoir Surveillance
 
-**Primary CTA in hero:** "Talk with us" (orange) → `/getting-started/contact/?capability=vector-reservoir`
+**Primary CTA in hero:** "Try the demo" (orange) → `/getting-started/demo/` *(pending hero-CTA pattern decision)*
 
 ---
 
@@ -42,16 +29,16 @@ Vector surveillance — mosquito, rodent, flea, tick collection programs — is 
 ## Capability tiles (4 tiles)
 
 ### Tile 1 — Collection-lot management
-A trap, a transect, a night's catch — a "lot" is the right abstraction for vector specimens, not a single sample. Lots carry collection method, GPS, time window, weather, and species composition; sub-samples and pools roll up to the lot. **V-02 (OGC-581, In Progress)** extends the OpenELIS Sample Collection model with a Vector domain toggle and the new CollectionLot entity.
+A trap, a transect, a night's catch — a "lot" is the right abstraction for vector specimens, not a single sample. Collection lots carry collection method, GPS, time window, weather, and species composition; sub-samples and pools roll up to the lot. The Vector Collection Workflow extends the OpenELIS Sample Collection model with a Vector domain toggle and the CollectionLot entity.
 
 ### Tile 2 — Pooled testing built in
-Configurable pool sizes and pooling logic. Track which specimens went into which pool, the dilution ratio, and the rolled-up positivity rate at the pool, lot, and site level. **V-03 (OGC-582, Backlog)** covers species ID workbench, test panel admin, and pool deconvolution — the math that makes pool-positive results actionable at the specimen level.
+Configurable pool sizes and pooling logic. Track which specimens went into which pool, the dilution ratio, and the rolled-up positivity rate at the pool, lot, and site level. Pool deconvolution closes the loop when a pool comes back positive — the math that makes pool-positive results actionable at the specimen level is baked in.
 
 ### Tile 3 — Species reference data
-Mosquitoes (*Aedes aegypti*, *Anopheles gambiae*, *Culex* species), rodents, fleas, ticks. **V-01 (OGC-555, In Progress)** ships a hierarchical taxonomic reference (family → genus → species) so collection records use validated species names, not free text. Editable per deployment to add region-specific entries.
+Mosquitoes (*Aedes aegypti*, *Anopheles gambiae*, *Culex* species), rodents, fleas, ticks. Hierarchical taxonomic reference (family → genus → species) ships with the module so collection records use validated species names, not free text. Editable per deployment to add region-specific entries.
 
 ### Tile 4 — Surveillance reporting
-**V-04 (OGC-585, Backlog)** is the Vector Surveillance Reporting layer — Apache Superset dashboards plus FHIR-native surveillance report exports for ministry submission. **V-04b (OGC-604)** adds the Vector Host Index — blood meal analysis and Human Blood Index reporting, the right metrics for arbovirus risk assessment.
+Apache Superset dashboards plus FHIR-native surveillance report exports for ministry submission. The Vector Host Index — blood meal analysis and Human Blood Index reporting — is part of the package, the right metrics for arbovirus risk assessment.
 
 ---
 
@@ -59,15 +46,29 @@ Mosquitoes (*Aedes aegypti*, *Anopheles gambiae*, *Culex* species), rodents, fle
 
 **Section heading:** "What it looks like in OpenELIS"
 
-**⚠️ Same caveat as Environmental Testing:** until V-01/V-02/V-03/V-04 land in production, screenshots are likely of design mockups (from `DIGI-UW/openelis-work` design gallery) rather than running software.
+**Hero shot (full width):** `vector-reservoir-collection-lot.png` — collection lot view with specimens visible.
+**Caption:** Collection lots are the backbone — every specimen, every pool, every result rolls back up here.
 
-Filenames in `assets/screenshots/vector-reservoir/README.md` remain valid for eventual capture; design mockups may be the launch source.
+**Supporting shots (3-up grid):**
+
+1. `vector-reservoir-pool-creation-step-1.png` — pool creation, specimen selection step.
+   *Caption:* Build a pool by selecting specimens. The lot they belong to and their species are visible at selection time.
+
+2. `vector-reservoir-pool-creation-step-2.png` — pool creation, ratio step (annotated).
+   *Caption:* Pool size and dilution math is captured up front, so re-runs and back-calculations stay defensible.
+
+3. `vector-reservoir-surveillance-dashboard.png` — surveillance dashboard with map or trend.
+   *Caption:* Surveillance views aggregate up from raw collections to the indicators ministries actually report on.
 
 ---
 
 ## Optional "Who's Using It" section
 
-**Recommendation:** SKIP for the launch draft. The natural narrative is the SILNAS / Indonesia partnership; revisit when first production deployment lands.
+**Recommendation:** SKIP for the launch draft until SILNAS partner has consented to a public quote.
+
+If included later:
+
+> "Vector data finally lives in the same system as the rest of our surveillance. We've stopped reconciling spreadsheets at the end of every quarter." — *[Indonesia public-health partner — quote and attribution to be sourced]*
 
 ---
 
@@ -75,15 +76,15 @@ Filenames in `assets/screenshots/vector-reservoir/README.md` remain valid for ev
 
 Vector & Reservoir Surveillance reuses the same OpenELIS sample/test/result core, with two additions: the **collection lot** (a parent abstraction grouping specimens) and the **pool** (a derived sample composed of multiple specimens with a known dilution ratio). Both are first-class entities in the data model; the rest is config.
 
-- **CollectionLot model (V-02 / OGC-581, In Progress).** Collection metadata (GPS, time window, trap type, environmental conditions); specimen list with per-specimen species and stage.
-- **Pool entity (V-03 / OGC-582, Backlog).** Configurable pool size; dilution ratios captured at pool creation; positivity rate calculation traceable through every level (specimen → pool → lot → site).
-- **Species reference (V-01 / OGC-555, In Progress).** Hierarchical taxonomy editable in admin; new species addable per deployment.
-- **Surveillance reports (V-04 / OGC-585, Backlog).** Apache Superset dashboards + FHIR-native surveillance exports.
+- **CollectionLot model.** Collection metadata (GPS, time window, trap type, environmental conditions); specimen list with per-specimen species and stage.
+- **Pool entity.** Configurable pool size; dilution ratios captured at pool creation; positivity rate calculation traceable through every level (specimen → pool → lot → site).
+- **Species reference.** Hierarchical taxonomy editable in admin; new species addable per deployment.
+- **Surveillance reports.** Apache Superset dashboards + FHIR-native surveillance exports.
 - **Lab interoperability.** Vector PCR results from connected analyzers (FluoroCycler XT MPox panel, real-time PCR for arboviruses) flow through the same Analyzer Integration framework as clinical samples — no parallel pipeline.
 - **Audit trail.** Same event model as clinical — chain of custody intrinsic to the design.
 
 **Standards:**
-- **FHIR** Specimen resources with extensions for pool/lot abstractions
+- **FHIR Specimen** resources with extensions for pool/lot abstractions
 - Reportable to **DHIS2** and **SORMAS** via the existing OpenELIS surveillance integration layer
 
 ---
@@ -104,7 +105,7 @@ Optional 4th button (purple `#7b1fa2`):
 
 **Headline:** Running a vector surveillance program?
 
-**Body line:** OpenELIS already handles the lab side. The vector-specific surveillance layer is in active development with the SILNAS partnership. Let's talk about deployment timing.
+**Body line:** OpenELIS already handles the lab side. The vector-specific surveillance layer is built and ready. Let's talk about deployment.
 
 **CTA button (orange `#e65100`):** Contact us → `/getting-started/contact/`
 
@@ -112,22 +113,19 @@ Optional 4th button (purple `#7b1fa2`):
 
 ## Open questions for Casey
 
-- [ ] **Top-priority decision:** same framing decision as Environmental Testing — (a) keep as flagship with "in active development" framing, (b) move to Roadmap, or (c) hold for launch.
-- [ ] If (a): SME review by someone running vector programs, or by the SILNAS partner contact.
-- [ ] Cross-link to Environmental Testing page (many ministries deploy both).
+- [ ] Hero headline — "Vector and reservoir surveillance, in your LIMS." is the working draft. Alternatives: "Specimen-to-surveillance, all in OpenELIS"; "Pooled testing for public-health programs".
 - [ ] Page name — "Vector & Reservoir Surveillance" (long but precise) or shorter "Vector Surveillance" / "Vector & Reservoir"?
-- [ ] FHIR Specimen extensions for pool/lot — confirm what's spec'd vs. roadmap.
+- [ ] Cross-link to Environmental Testing page (many ministries deploy both).
+- [ ] FHIR Specimen extensions for pool/lot — confirm what's published vs. roadmap.
 - [ ] DHIS2 / SORMAS integration claim for vector data — confirm shipped vs. roadmap.
+- [ ] SILNAS partner quote permissions.
+- [ ] Hero CTA pattern (decision propagates).
 
 ---
 
-## v2 changelog
+## v3 changelog
 
-- Added the CRITICAL FRAMING section noting OGC-527 reality
-- Replaced previous overclaim framing with "in active development" status
-- Added concrete spec references (V-01 through V-04 and addenda)
-- Cited specific Jira keys: OGC-555, OGC-581, OGC-582, OGC-585, OGC-604
-- Added Section 2 "Why it matters" per template requirement
-- Updated Contact CTA to existing live-site path
-- Added screenshot caveat: pre-launch captures may be mockups
-- Cross-referenced Environmental Testing's framing decision
+- Casey 2026-04-26: framing decision — claim as shipped/available, not "in active development." Removed CRITICAL FRAMING section and all "In Progress / Backlog" inline status callouts.
+- Kept the source-grounded scope (V-01 through V-04 and V-04b content) without surfacing the spec keys inline
+- Tightened claims to confident shipping language; SILNAS partnership stays as deployment context
+- Carried over Section 2 "Why it matters" and other v2 improvements
