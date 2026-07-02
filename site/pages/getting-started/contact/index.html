@@ -1,0 +1,89 @@
+<!--meta {"title":"Contact — OpenELIS Global","desc":"Get in touch with the OpenELIS Global team about deployment, sponsorship, or contributing. Connect with a worldwide community of implementers and developers.","path":"/getting-started/contact/","active":"getting-started","og":"/assets/screenshots/homepage/home-results-entry.png"} -->
+<!-- CONTACT FORM: works today with no backend — composes a formatted email to digit@uw.edu and opens
+     the visitor's mail client on submit. To upgrade to inline submission later, sign up at
+     https://formspree.io, set the form's action to the Formspree endpoint, and remove the onsubmit script. -->
+<section class="hero">
+  <div class="row">
+    <div class="col" style="flex-basis:100%; max-width:860px; margin:0 auto; text-align:center;">
+      <p class="crumb" style="text-align:center;">Home › Contact</p>
+      <h1>Get in touch</h1>
+      <p class="lead">Want to set up a demo, evaluating OpenELIS for your country, sponsoring a capability, or contributing code — tell us a little about what you're looking for and we'll get back to you.</p>
+    </div>
+  </div>
+</section>
+
+<svg class="wave" viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z" fill="#00695c"/></svg>
+
+<section class="section">
+  <div class="wrap narrow">
+    <form id="contactForm" action="mailto:digit@uw.edu" method="POST" enctype="text/plain">
+      <div class="form-grid">
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" required>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required>
+        </div>
+        <div class="field">
+          <label for="organization">Organization</label>
+          <input id="organization" name="organization" type="text">
+        </div>
+        <div class="field">
+          <label for="country">Country</label>
+          <input id="country" name="country" type="text">
+        </div>
+        <div class="field full">
+          <label for="message">How can we help?</label>
+          <textarea id="message" name="message" placeholder="Tell us what you're looking for — a demo, a deployment for your lab or country, sponsoring a capability, or anything else. Or just say hello."></textarea>
+        </div>
+      </div>
+      <p style="margin-top:20px;"><button type="submit" class="btn btn-orange">Send message</button></p>
+      <p class="form-note">Submitting opens your email app with a pre-filled message to the OpenELIS team. Prefer another channel? Reach the community on the <a href="https://talk.openelis-global.org/">forum</a> or <a href="https://github.com/I-TECH-UW/OpenELIS-Global-2">GitHub</a>.</p>
+    </form>
+  </div>
+</section>
+
+<script>
+  (function () {
+    var f = document.getElementById('contactForm');
+    if (!f) return;
+    f.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var v = function (id) { var el = document.getElementById(id); return el ? el.value.trim() : ''; };
+      var body =
+        'Name: ' + v('name') + '\n' +
+        'Email: ' + v('email') + '\n' +
+        'Organization: ' + v('organization') + '\n' +
+        'Country: ' + v('country') + '\n\n' +
+        'Message:\n' + v('message') + '\n';
+      window.location.href = 'mailto:digit@uw.edu'
+        + '?subject=' + encodeURIComponent('Contact from openelis-global.org')
+        + '&body=' + encodeURIComponent(body);
+    });
+  })();
+</script>
+
+<section class="section soft">
+  <div class="wrap">
+    <h2 class="center">Other ways to connect</h2>
+    <div class="router">
+      <a href="mailto:digit@uw.edu?subject=Contact%20from%20openelis-global.org">
+        <h3>Email us directly</h3>
+        <p>Prefer email? Reach the OpenELIS team at digit@uw.edu — for demos, deployment questions, or anything else.</p>
+        <span class="go">digit@uw.edu →</span>
+      </a>
+      <a href="https://talk.openelis-global.org/">
+        <h3>Ask the community</h3>
+        <p>Post a question on the forum — implementers and developers worldwide are ready to help.</p>
+        <span class="go">Visit the forum →</span>
+      </a>
+      <a href="https://github.com/I-TECH-UW/OpenELIS-Global-2">
+        <h3>Contribute</h3>
+        <p>Report an issue, request a feature, or contribute code on GitHub.</p>
+        <span class="go">Open GitHub →</span>
+      </a>
+    </div>
+  </div>
+</section>

@@ -100,12 +100,14 @@ Small pill-shaped labels using the palette colors. Example:
 
 ## Links
 
-- Demo server: `https://demo.openelis-global.org`
-- Demo info page: `/getting-started/demo/`
+- Testing/capture server: `https://testing.openelis-global.org` — used for screenshot capture only; credentials held out-of-band (this repo is public). **Not linked from public marketing pages.**
+- Demo info page (public CTA target): `/getting-started/demo/`
+- Docs site: `https://docs.openelis-global.org`
 - YouTube channel: `@openelisglobal`
-- GitHub (core product): `https://github.com/I-TECH-UW/OpenELIS-Global2`
+- GitHub (core product): `https://github.com/I-TECH-UW/OpenELIS-Global-2`
 - GitHub (design work): `https://github.com/DIGI-UW/openelis-work`
-- GitHub (this website): `https://github.com/DIGI-UW/openelis-website`
+- GitHub (this website — future home): `https://github.com/DIGI-UW/openelis-website`
+- GitHub (this website — current working copy): `https://github.com/caseyi/openelis-website`
 - DIGI: `https://digi.uw.edu`
 
 ---

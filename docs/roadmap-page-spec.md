@@ -2,8 +2,8 @@
 
 **Phase:** 2.3
 **Target URL:** `/roadmap/`
-**Status:** Draft for Casey review.
-**Dependencies for build (Phase 4.6):** This spec merged, AMR Resistance Module Jira epic ID captured (Phase 1.4).
+**Status:** Draft for Casey review. Initial tier assignments confirmed 2026-04-22 ("go for it"); AMR epic locked in as OGC-293.
+**Dependencies for build (Phase 4.6):** This spec merged. Phase 1.4 complete — AMR Resistance Module Jira epic captured as **OGC-293** (https://uwdigi.atlassian.net/browse/OGC-293).
 
 ---
 
@@ -63,7 +63,7 @@ Proves momentum.
   - Version badge (e.g., "OpenELIS 3.2.1")
   - One-sentence description
   - "Learn more →" link to the corresponding feature page (when available) or the `/features/` catch-all (when not)
-- **Initial items** (confirm with Casey before build):
+- **Initial items** (confirmed by Casey 2026-04-22):
   - **Inventory Management** → links to `/capabilities/inventory-management/`, tagged `3.2.1.x`
   - **Sample & Storage Management** (Storage + Freezer Monitoring) → links to `/capabilities/sample-storage/`, tagged `3.2.1.x`
   - **Patient Photo Capture** (if shipped) → links to `/features/` until a feature page exists
@@ -80,10 +80,10 @@ Current-quarter work. Shows where effort is actually landing.
   - Jira epic link (for transparency — DIGI is public about the backlog)
   - "Learn more →" if there's a feature page, otherwise link to the Jira epic
   - For 🔴 Seeking sponsor items: "Sponsor this capability →" link to Contact Us
-- **Initial items** (confirm with Casey before build):
+- **Initial items** (confirmed by Casey 2026-04-22):
   - **Blood Bank** — Donor management, crossmatch, component tracking. Jira: OGC-455 / 457 / 459 / 461 / 464. Badge: 🔴 **Seeking sponsor.** Contact Us CTA on card.
-  - **Validation v2/v3** — Validation workflow modernization. Jira: *TBD.* Badge: 🟢 Funded & underway (confirm with Casey).
-  - **FHIR Catalog Subscription** — Catalog of orderables synced via FHIR Subscription. Jira: *TBD.* Badge: 🟢 Funded & underway (confirm with Casey).
+  - **Validation v2/v3** — Validation workflow modernization. Jira: *TBD (Casey to supply epic ID).* Badge: 🟢 Funded & underway.
+  - **FHIR Catalog Subscription** — Catalog of orderables synced via FHIR Subscription. Jira: *TBD (Casey to supply epic ID).* Badge: 🟢 Funded & underway.
   - **Analyzer Integration (ongoing expansion)** — New analyzer support added via config profiles. Badge: 🟢 Funded & underway.
 
 ### Tier 3 — Planned / On the Horizon
@@ -91,8 +91,8 @@ Current-quarter work. Shows where effort is actually landing.
 Aspirational, wishlist, community/funder-solicited.
 
 - 3–5 cards, same card template as Tier 2
-- **Initial items:**
-  - **AMR Resistance Module** — Antimicrobial resistance surveillance and reporting. Jira epic: *TBD — captured in Phase 1.4.* Badge: 🔴 **Seeking sponsor.** Contact Us CTA on card.
+- **Initial items** (confirmed by Casey 2026-04-22):
+  - **AMR Resistance Module** — Antimicrobial resistance surveillance and reporting. Jira epic: **[OGC-293](https://uwdigi.atlassian.net/browse/OGC-293)**. Badge: 🔴 **Seeking sponsor.** Contact Us CTA on card.
   - **Lab Notebook** — Researcher-facing capture surface for R&D labs. Badge: ⚪ Concept. No Jira epic yet.
   - **Country Deployment Map** — Live map of OpenELIS deployments. Badge: ⚪ Concept.
   - Additional concept items as Casey identifies them.
@@ -200,10 +200,11 @@ Applies to every card on the Roadmap page:
 
 Review and confirm before Phase 4.6 build:
 
-- [ ] Tier 1 initial items — are Inventory, Sample & Storage, and Patient Photo Capture the right three?
-- [ ] Tier 2 initial items — Validation v2/v3 and FHIR Catalog Subscription badge states (Funded vs Partially funded)
-- [ ] Tier 2 — any ongoing flagship work missing from the list (e.g., pathology, referrals, analyzer integration ongoing)
-- [ ] Tier 3 — AMR Resistance Module Jira epic ID (Phase 1.4 deliverable)
+- [x] Tier 1 initial items — Inventory, Sample & Storage, Patient Photo Capture — **confirmed 2026-04-22**
+- [x] Tier 2 initial items — Validation v2/v3 + FHIR Catalog Subscription **confirmed 🟢 Funded & underway**
+- [x] Tier 3 — AMR Resistance Module Jira epic — **OGC-293 (confirmed 2026-04-22)**
+- [ ] Tier 2 — epic IDs for Validation v2/v3 and FHIR Catalog Subscription (badge state confirmed; epic link still TBD)
+- [ ] Tier 2 — any ongoing flagship work missing from the list (e.g., pathology, referrals)
 - [ ] Tier 3 — any community asks / wishlist items to add as ⚪ Concept
 - [ ] Hero copy — is "What's next for OpenELIS Global" the right headline?
 - [ ] "How to get a capability prioritized" — are the three lanes (fund / deploy / build) the right framing for this audience?

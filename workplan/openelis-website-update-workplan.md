@@ -265,7 +265,7 @@ Recorded for future cycles (see Section 2 "Deferred").
 - Rough deadline (to be set)
 
 ### Screenshot capture brief for Cowork
-**Purpose:** A structured, self-contained brief Cowork can execute against demo.openelis-global.org without further back-and-forth.
+**Purpose:** A structured, self-contained brief Cowork can execute against testing.openelis-global.org without further back-and-forth. (Capture work targets the testing server; public-facing "Try the demo" CTAs point at `/getting-started/demo/`.)
 
 **Contents:**
 - Demo server URL, login credentials, recommended demo data set
@@ -285,7 +285,7 @@ All work produced under this plan must conform to existing OpenELIS website conv
 - **Colors:** Teal `#00695c` / `#00897b` (primary), orange `#e65100` / `#ff8f00` (partners/CTA), purple `#7b1fa2` (publications), blue `#1565c0` (technical)
 - **Design:** Wave SVG dividers, floating icon decorations, gradient hero sections, rounded cards with shadows, color-coded category badges
 - **Heroes:** Compact padding (60px 20px), no large circular icon holders, simple breadcrumb text, `h1`/`p` tags (not styled spans)
-- **Links:** Demo at `demo.openelis-global.org`, demo info at `/getting-started/demo/`, YouTube `@openelisglobal`
+- **Links:** Public "Try the demo" CTAs point at `/getting-started/demo/`; capture work targets `testing.openelis-global.org` (internal, not linked from public pages); docs at `docs.openelis-global.org`; YouTube `@openelisglobal`
 - **Images:** Absolute URLs at `https://openelis-global.org/wp-content/uploads/2025/12/`; WordPress converts underscores to hyphens in filenames
 - **Branding:** Stewarded by DIGI at University of Washington (`digi.uw.edu`), current version OpenELIS Global 3
 

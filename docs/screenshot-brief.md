@@ -8,14 +8,15 @@
 
 ## 1. Demo server setup
 
-- **URL:** https://demo.openelis-global.org
-- **Credentials:** *TBD — Casey to provide a dedicated demo capture account. Do not reuse personal credentials; capture accounts produce cleaner screenshots (no personalized shortcuts, no pinned records).*
-- **Demo data set:** *TBD — Casey to confirm which demo dataset to load. Default recommendation: the standard OpenELIS demo fixture as loaded on first boot of `demo.openelis-global.org`. If a Ministry-specific dataset is preferred for authenticity, name it here.*
-- **Pre-capture verification:** The demo server may auto-reset on a schedule. Before any capture session, log in and confirm:
+- **URL:** https://testing.openelis-global.org
+- **Credentials:** The default OpenELIS admin test account is used for captures. **Credentials are held out-of-band — they are NOT committed to this repo, since `caseyi/openelis-website` is public on GitHub.** Casey shares them directly with whoever is doing capture work. If you're doing capture and don't have credentials, ping Casey.
+- **Demo data set:** Standard OpenELIS demo fixture as loaded on first boot of `testing.openelis-global.org`. If a Ministry-specific dataset is preferred later (for funder-facing authenticity), Casey will name it here.
+- **Pre-capture verification:** The testing server may auto-reset on a schedule. Before any capture session, log in and confirm:
   - Expected patients, samples, analyzers, and configuration records are present
   - No test data from a prior session is polluting views (stray records with "asdf" or "test" in names)
   - The server is responding normally (no error banners, no stale session warnings)
 - **If reset has happened:** Reload the demo fixture before continuing. If the reload process is non-obvious, escalate to Casey rather than guessing.
+- **Security note:** Do not paste credentials into commit messages, PR descriptions, issue bodies, or any file in this repo. If a credential accidentally lands in git history, rotate it immediately and escalate to Casey.
 
 ## 2. Browser setup
 

@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1a365d;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2c5282;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="clientGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#4299e1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3182ce;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="appGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#48bb78;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#38a169;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="dataGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ed8936;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#dd6b20;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="externalGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#9f7aea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#805ad5;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="securityGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#fc8181;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f56565;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Drop Shadow -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.2"/>
+    </filter>
+    
+    <!-- Arrow Marker -->
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#718096"/>
+    </marker>
+    <marker id="arrowheadBlue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#3182ce"/>
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="900" fill="#f7fafc"/>
+  
+  <!-- Title Header -->
+  <rect x="0" y="0" width="1200" height="60" fill="url(#headerGrad)"/>
+  <text x="600" y="38" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="white" text-anchor="middle">OpenELIS Global System Architecture</text>
+  
+  <!-- ==================== EXTERNAL SYSTEMS (Left Side) ==================== -->
+  <g id="external-systems">
+    <!-- External Systems Container -->
+    <rect x="20" y="80" width="180" height="500" rx="8" fill="#f0fff4" stroke="#48bb78" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="20" y="80" width="180" height="35" rx="8" fill="url(#externalGrad)"/>
+    <text x="110" y="103" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">EXTERNAL SYSTEMS</text>
+    
+    <!-- EMR Systems -->
+    <rect x="35" y="130" width="150" height="55" rx="5" fill="white" stroke="#805ad5" stroke-width="1.5"/>
+    <text x="110" y="152" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#553c9a" text-anchor="middle">EMR Systems</text>
+    <text x="110" y="168" font-family="Arial, sans-serif" font-size="9" fill="#718096" text-anchor="middle">OpenMRS, iSantePlus</text>
+    <text x="110" y="180" font-family="Arial, sans-serif" font-size="8" fill="#a0aec0" text-anchor="middle">FHIR R4</text>
+    
+    <!-- Client Registry -->
+    <rect x="35" y="195" width="150" height="55" rx="5" fill="white" stroke="#805ad5" stroke-width="1.5"/>
+    <text x="110" y="217" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#553c9a" text-anchor="middle">Client Registry</text>
+    <text x="110" y="233" font-family="Arial, sans-serif" font-size="9" fill="#718096" text-anchor="middle">OpenCR</text>
+    <text x="110" y="245" font-family="Arial, sans-serif" font-size="8" fill="#a0aec0" text-anchor="middle">FHIR R4</text>
+    
+    <!-- Facility Registry -->
+    <rect x="35" y="260" width="150" height="55" rx="5" fill="white" stroke="#805ad5" stroke-width="1.5"/>
+    <text x="110" y="282" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#553c9a" text-anchor="middle">Facility Registry</text>
+    <text x="110" y="298" font-family="Arial, sans-serif" font-size="9" fill="#718096" text-anchor="middle">GOFR</text>
+    <text x="110" y="310" font-family="Arial, sans-serif" font-size="8" fill="#a0aec0" text-anchor="middle">FHIR R4</text>
+    
+    <!-- HIE Mediator -->
+    <rect x="35" y="325" width="150" height="55" rx="5" fill="white" stroke="#805ad5" stroke-width="1.5"/>
+    <text x="110" y="347" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#553c9a" text-anchor="middle">HIE Mediator</text>
+    <text x="110" y="363" font-family="Arial, sans-serif" font-size="9" fill="#718096" text-anchor="middle">OpenHIM</text>
+    <text x="110" y="375" font-family="Arial, sans-serif" font-size="8" fill="#a0aec0" text-anchor="middle">Routing, Audit</text>
+    
+    <!-- Billing/ERP -->
+    <rect x="35" y="390" width="150" height="55" rx="5" fill="white" stroke="#805ad5" stroke-width="1.5"/>
+    <text x="110" y="412" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#553c9a" text-anchor="middle">Billing / ERP</text>
+    <text x="110" y="428" font-family="Arial, sans-serif" font-size="9" fill="#718096" text-anchor="middle">Odoo</text>
+    <text x="110" y="440" font-family="Arial, sans-serif" font-size="8" fill="#a0aec0" text-anchor="middle">REST API</text>
+    
+    <!-- Surveillance -->
+    <rect x="35" y="455" width="150" height="55" rx="5" fill="white" stroke="#805ad5" stroke-width="1.5"/>
+    <text x="110" y="477" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#553c9a" text-anchor="middle">Surveillance</text>
+    <text x="110" y="493" font-family="Arial, sans-serif" font-size="9" fill="#718096" text-anchor="middle">DHIS2, SORMAS</text>
+    <text x="110" y="505" font-family="Arial, sans-serif" font-size="8" fill="#a0aec0" text-anchor="middle">FHIR R4</text>
+    
+    <!-- Analytics -->
+    <rect x="35" y="520" width="150" height="45" rx="5" fill="white" stroke="#805ad5" stroke-width="1.5"/>
+    <text x="110" y="540" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#553c9a" text-anchor="middle">Analytics</text>
+    <text x="110" y="555" font-family="Arial, sans-serif" font-size="9" fill="#718096" text-anchor="middle">Superset, Grafana</text>
+  </g>
+  
+  <!-- ==================== CLIENT LAYER ==================== -->
+  <g id="client-layer">
+    <rect x="220" y="80" width="760" height="100" rx="8" fill="#ebf8ff" stroke="#4299e1" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="220" y="80" width="760" height="30" rx="8" fill="url(#clientGrad)"/>
+    <text x="600" y="100" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">CLIENT LAYER</text>
+    
+    <!-- React SPA -->
+    <rect x="245" y="120" width="160" height="50" rx="5" fill="white" stroke="#3182ce" stroke-width="1.5"/>
+    <text x="325" y="142" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2b6cb0" text-anchor="middle">React SPA</text>
+    <text x="325" y="158" font-family="Arial, sans-serif" font-size="10" fill="#718096" text-anchor="middle">Carbon Design System</text>
+    
+    <!-- Legacy JSP -->
+    <rect x="420" y="120" width="160" height="50" rx="5" fill="white" stroke="#3182ce" stroke-width="1.5"/>
+    <text x="500" y="142" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2b6cb0" text-anchor="middle">Legacy Admin UI</text>
+    <text x="500" y="158" font-family="Arial, sans-serif" font-size="10" fill="#718096" text-anchor="middle">JSP / Server-side</text>
+    
+    <!-- External Apps -->
+    <rect x="595" y="120" width="160" height="50" rx="5" fill="white" stroke="#3182ce" stroke-width="1.5"/>
+    <text x="675" y="142" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2b6cb0" text-anchor="middle">External Apps</text>
+    <text x="675" y="158" font-family="Arial, sans-serif" font-size="10" fill="#718096" text-anchor="middle">FHIR / REST API</text>
+    
+    <!-- Mobile/Tablets -->
+    <rect x="770" y="120" width="160" height="50" rx="5" fill="white" stroke="#3182ce" stroke-width="1.5"/>
+    <text x="850" y="142" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2b6cb0" text-anchor="middle">Browsers</text>
+    <text x="850" y="158" font-family="Arial, sans-serif" font-size="10" fill="#718096" text-anchor="middle">Chrome (Recommended)</text>
+  </g>
+  
+  <!-- ==================== APPLICATION LAYER ==================== -->
+  <g id="application-layer">
+    <rect x="220" y="200" width="760" height="280" rx="8" fill="#f0fff4" stroke="#48bb78" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="220" y="200" width="760" height="30" rx="8" fill="url(#appGrad)"/>
+    <text x="600" y="220" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">APPLICATION LAYER — Spring Boot 3.x / Java 21</text>
+    
+    <!-- Nginx -->
+    <rect x="240" y="245" width="120" height="60" rx="5" fill="white" stroke="#38a169" stroke-width="1.5"/>
+    <text x="300" y="272" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#276749" text-anchor="middle">Nginx</text>
+    <text x="300" y="288" font-family="Arial, sans-serif" font-size="9" fill="#718096" text-anchor="middle">SSL Termination</text>
+    <text x="300" y="300" font-family="Arial, sans-serif" font-size="9" fill="#718096" text-anchor="middle">Reverse Proxy</text>
+    
+    <!-- REST API -->
+    <rect x="375" y="245" width="130" height="60" rx="5" fill="white" stroke="#38a169" stroke-width="1.5"/>
+    <text x="440" y="272" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#276749" text-anchor="middle">REST API</text>
+    <text x="440" y="288" font-family="Arial, sans-serif" font-size="9" fill="#718096" text-anchor="middle">Controllers</text>
+    <text x="440" y="300" font-family="Arial, sans-serif" font-size="9" fill="#718096" text-anchor="middle">JSON/XML</text>
+    
+    <!-- FHIR API -->
+    <rect x="520" y="245" width="130" height="60" rx="5" fill="white" stroke="#38a169" stroke-width="1.5"/>
+    <text x="585" y="272" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#276749" text-anchor="middle">FHIR R4 API</text>
+    <text x="585" y="288" font-family="Arial, sans-serif" font-size="9" fill="#718096" text-anchor="middle">HAPI FHIR</text>
+    <text x="585" y="300" font-family="Arial, sans-serif" font-size="9" fill="#718096" text-anchor="middle">HL7 Standard</text>
+    
+    <!-- Analyzer Handler -->
+    <rect x="665" y="245" width="130" height="60" rx="5" fill="white" stroke="#38a169" stroke-width="1.5"/>
+    <text x="730" y="272" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#276749" text-anchor="middle">Analyzer Handler</text>
+    <text x="730" y="288" font-family="Arial, sans-serif" font-size="9" fill="#718096" text-anchor="middle">ASTM LIS2-A2</text>
+    <text x="730" y="300" font-family="Arial, sans-serif" font-size="9" fill="#718096" text-anchor="middle">HL7 v2.x</text>
+    
+    <!-- SSO -->
+    <rect x="810" y="245" width="120" height="60" rx="5" fill="white" stroke="#38a169" stroke-width="1.5"/>
+    <text x="870" y="272" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#276749" text-anchor="middle">Authentication</text>
+    <text x="870" y="288" font-family="Arial, sans-serif" font-size="9" fill="#718096" text-anchor="middle">SAML 2.0 / SSO</text>
+    <text x="870" y="300" font-family="Arial, sans-serif" font-size="9" fill="#718096" text-anchor="middle">Keycloak</text>
+    
+    <!-- Service Layer -->
+    <rect x="240" y="320" width="200" height="70" rx="5" fill="white" stroke="#38a169" stroke-width="1.5"/>
+    <text x="340" y="347" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#276749" text-anchor="middle">Service Layer</text>
+    <text x="340" y="363" font-family="Arial, sans-serif" font-size="9" fill="#718096" text-anchor="middle">Business Logic</text>
+    <text x="340" y="378" font-family="Arial, sans-serif" font-size="9" fill="#718096" text-anchor="middle">Spring Services</text>
+    
+    <!-- Workflow Engine -->
+    <rect x="455" y="320" width="200" height="70" rx="5" fill="white" stroke="#38a169" stroke-width="1.5"/>
+    <text x="555" y="347" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#276749" text-anchor="middle">Workflow Engine</text>
+    <text x="555" y="363" font-family="Arial, sans-serif" font-size="9" fill="#718096" text-anchor="middle">Order → Sample → Result</text>
+    <text x="555" y="378" font-family="Arial, sans-serif" font-size="9" fill="#718096" text-anchor="middle">Validation Rules</text>
+    
+    <!-- Validation Engine -->
+    <rect x="670" y="320" width="200" height="70" rx="5" fill="white" stroke="#38a169" stroke-width="1.5"/>
+    <text x="770" y="347" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#276749" text-anchor="middle">Validation Engine</text>
+    <text x="770" y="363" font-family="Arial, sans-serif" font-size="9" fill="#718096" text-anchor="middle">Reference Ranges</text>
+    <text x="770" y="378" font-family="Arial, sans-serif" font-size="9" fill="#718096" text-anchor="middle">QC Rules, Alerts</text>
+    
+    <!-- Data Access Layer -->
+    <rect x="240" y="405" width="340" height="55" rx="5" fill="white" stroke="#38a169" stroke-width="1.5"/>
+    <text x="410" y="430" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#276749" text-anchor="middle">Data Access Layer (Hibernate / JPA)</text>
+    <text x="410" y="448" font-family="Arial, sans-serif" font-size="9" fill="#718096" text-anchor="middle">ORM, Repositories, Transaction Management</text>
+    
+    <!-- FHIR Resource Manager -->
+    <rect x="595" y="405" width="275" height="55" rx="5" fill="white" stroke="#38a169" stroke-width="1.5"/>
+    <text x="732" y="430" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#276749" text-anchor="middle">FHIR Resource Manager</text>
+    <text x="732" y="448" font-family="Arial, sans-serif" font-size="9" fill="#718096" text-anchor="middle">Resource Transformation, Sync</text>
+  </g>
+  
+  <!-- ==================== DATA LAYER ==================== -->
+  <g id="data-layer">
+    <rect x="220" y="500" width="760" height="130" rx="8" fill="#fffaf0" stroke="#ed8936" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="220" y="500" width="760" height="30" rx="8" fill="url(#dataGrad)"/>
+    <text x="600" y="520" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">DATA LAYER</text>
+    
+    <!-- PostgreSQL -->
+    <rect x="260" y="545" width="280" height="70" rx="5" fill="white" stroke="#dd6b20" stroke-width="1.5"/>
+    <text x="400" y="572" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#c05621" text-anchor="middle">PostgreSQL 14+</text>
+    <text x="400" y="592" font-family="Arial, sans-serif" font-size="10" fill="#718096" text-anchor="middle">Primary Database (clinlims schema)</text>
+    <text x="400" y="607" font-family="Arial, sans-serif" font-size="9" fill="#a0aec0" text-anchor="middle">Patients, Samples, Results, Audit Trail</text>
+    
+    <!-- Bidirectional arrow -->
+    <line x1="545" y1="580" x2="595" y2="580" stroke="#718096" stroke-width="2"/>
+    <polygon points="592,576 600,580 592,584" fill="#718096"/>
+    <polygon points="548,576 540,580 548,584" fill="#718096"/>
+    <text x="570" y="572" font-family="Arial, sans-serif" font-size="8" fill="#718096" text-anchor="middle">Sync</text>
+    
+    <!-- HAPI FHIR -->
+    <rect x="660" y="545" width="280" height="70" rx="5" fill="white" stroke="#dd6b20" stroke-width="1.5"/>
+    <text x="800" y="572" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#c05621" text-anchor="middle">HAPI FHIR JPA Server</text>
+    <text x="800" y="592" font-family="Arial, sans-serif" font-size="10" fill="#718096" text-anchor="middle">Co-resident FHIR R4 Store</text>
+    <text x="800" y="607" font-family="Arial, sans-serif" font-size="9" fill="#a0aec0" text-anchor="middle">FHIR Resources, Subscriptions</text>
+  </g>
+  
+  <!-- ==================== LAB ANALYZERS (Right Side) ==================== -->
+  <g id="analyzers">
+    <rect x="1000" y="80" width="180" height="330" rx="8" fill="#fff5f5" stroke="#fc8181" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="1000" y="80" width="180" height="35" rx="8" fill="url(#securityGrad)"/>
+    <text x="1090" y="103" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">LAB ANALYZERS</text>
+    
+    <!-- GeneXpert -->
+    <rect x="1015" y="130" width="150" height="50" rx="5" fill="white" stroke="#f56565" stroke-width="1.5"/>
+    <text x="1090" y="152" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#c53030" text-anchor="middle">GeneXpert</text>
+    <text x="1090" y="168" font-family="Arial, sans-serif" font-size="9" fill="#718096" text-anchor="middle">ASTM / HL7</text>
+    
+    <!-- Sysmex -->
+    <rect x="1015" y="190" width="150" height="50" rx="5" fill="white" stroke="#f56565" stroke-width="1.5"/>
+    <text x="1090" y="212" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#c53030" text-anchor="middle">Sysmex XN/XP</text>
+    <text x="1090" y="228" font-family="Arial, sans-serif" font-size="9" fill="#718096" text-anchor="middle">ASTM LIS2-A2</text>
+    
+    <!-- Cobas -->
+    <rect x="1015" y="250" width="150" height="50" rx="5" fill="white" stroke="#f56565" stroke-width="1.5"/>
+    <text x="1090" y="272" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#c53030" text-anchor="middle">Cobas Series</text>
+    <text x="1090" y="288" font-family="Arial, sans-serif" font-size="9" fill="#718096" text-anchor="middle">ASTM / HL7</text>
+    
+    <!-- Other Analyzers -->
+    <rect x="1015" y="310" width="150" height="50" rx="5" fill="white" stroke="#f56565" stroke-width="1.5"/>
+    <text x="1090" y="332" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#c53030" text-anchor="middle">Other Analyzers</text>
+    <text x="1090" y="348" font-family="Arial, sans-serif" font-size="9" fill="#718096" text-anchor="middle">Configurable Mapping</text>
+    
+    <!-- Bidirectional indicator -->
+    <rect x="1015" y="370" width="150" height="30" rx="5" fill="#fed7d7"/>
+    <text x="1090" y="390" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#c53030" text-anchor="middle">⟷ Bidirectional</text>
+  </g>
+  
+  <!-- ==================== MONITORING (Bottom) ==================== -->
+  <g id="monitoring">
+    <rect x="220" y="650" width="760" height="80" rx="8" fill="#faf5ff" stroke="#9f7aea" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="220" y="650" width="760" height="28" rx="8" fill="#9f7aea"/>
+    <text x="600" y="669" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">MONITORING &amp; OBSERVABILITY</text>
+    
+    <!-- Prometheus -->
+    <rect x="260" y="688" width="150" height="35" rx="5" fill="white" stroke="#805ad5" stroke-width="1.5"/>
+    <text x="335" y="710" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#553c9a" text-anchor="middle">Prometheus</text>
+    
+    <!-- Grafana -->
+    <rect x="425" y="688" width="150" height="35" rx="5" fill="white" stroke="#805ad5" stroke-width="1.5"/>
+    <text x="500" y="710" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#553c9a" text-anchor="middle">Grafana</text>
+    
+    <!-- Logging -->
+    <rect x="590" y="688" width="150" height="35" rx="5" fill="white" stroke="#805ad5" stroke-width="1.5"/>
+    <text x="665" y="710" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#553c9a" text-anchor="middle">Centralized Logging</text>
+    
+    <!-- Autoheal -->
+    <rect x="755" y="688" width="150" height="35" rx="5" fill="white" stroke="#805ad5" stroke-width="1.5"/>
+    <text x="830" y="710" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#553c9a" text-anchor="middle">Autoheal</text>
+  </g>
+  
+  <!-- ==================== DOCKER CONTAINER INDICATOR ==================== -->
+  <g id="docker">
+    <rect x="1000" y="500" width="180" height="130" rx="8" fill="#e6fffa" stroke="#38b2ac" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="1000" y="500" width="180" height="35" rx="8" fill="#38b2ac"/>
+    <text x="1090" y="523" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">DEPLOYMENT</text>
+    
+    <!-- Docker icon placeholder -->
+    <rect x="1030" y="550" width="120" height="65" rx="5" fill="white" stroke="#319795" stroke-width="1.5"/>
+    <text x="1090" y="575" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#285e61" text-anchor="middle">Docker</text>
+    <text x="1090" y="592" font-family="Arial, sans-serif" font-size="9" fill="#718096" text-anchor="middle">Containerized</text>
+    <text x="1090" y="605" font-family="Arial, sans-serif" font-size="9" fill="#718096" text-anchor="middle">Docker Compose</text>
+  </g>
+  
+  <!-- ==================== CONNECTION ARROWS ==================== -->
+  
+  <!-- External to App Layer -->
+  <line x1="200" y1="280" x2="220" y2="280" stroke="#805ad5" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="200" y1="350" x2="220" y2="350" stroke="#805ad5" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Analyzers to App Layer -->
+  <line x1="1000" y1="280" x2="980" y2="280" stroke="#f56565" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="980" y1="280" x2="880" y2="280" stroke="#f56565" stroke-width="2"/>
+  <line x1="870" y1="275" x2="870" y2="285" stroke="#f56565" stroke-width="2"/>
+  
+  <!-- Client to App -->
+  <line x1="420" y1="175" x2="420" y2="200" stroke="#3182ce" stroke-width="2" marker-end="url(#arrowheadBlue)"/>
+  <line x1="600" y1="175" x2="600" y2="200" stroke="#3182ce" stroke-width="2" marker-end="url(#arrowheadBlue)"/>
+  <line x1="780" y1="175" x2="780" y2="200" stroke="#3182ce" stroke-width="2" marker-end="url(#arrowheadBlue)"/>
+  
+  <!-- App to Data -->
+  <line x1="400" y1="480" x2="400" y2="500" stroke="#38a169" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="750" y1="480" x2="750" y2="500" stroke="#38a169" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Data to Monitoring -->
+  <line x1="500" y1="630" x2="500" y2="650" stroke="#ed8936" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <line x1="700" y1="630" x2="700" y2="650" stroke="#ed8936" stroke-width="1.5" stroke-dasharray="5,3"/>
+  
+  <!-- ==================== LEGEND ==================== -->
+  <g id="legend">
+    <rect x="20" y="750" width="400" height="130" rx="8" fill="white" stroke="#e2e8f0" stroke-width="1" filter="url(#shadow)"/>
+    <text x="40" y="775" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2d3748">Legend</text>
+    
+    <!-- Layer colors -->
+    <rect x="40" y="790" width="20" height="12" fill="#4299e1" rx="2"/>
+    <text x="70" y="800" font-family="Arial, sans-serif" font-size="10" fill="#4a5568">Client Layer (Browser/UI)</text>
+    
+    <rect x="40" y="810" width="20" height="12" fill="#48bb78" rx="2"/>
+    <text x="70" y="820" font-family="Arial, sans-serif" font-size="10" fill="#4a5568">Application Layer (Spring Boot)</text>
+    
+    <rect x="40" y="830" width="20" height="12" fill="#ed8936" rx="2"/>
+    <text x="70" y="840" font-family="Arial, sans-serif" font-size="10" fill="#4a5568">Data Layer (PostgreSQL/FHIR)</text>
+    
+    <rect x="40" y="850" width="20" height="12" fill="#9f7aea" rx="2"/>
+    <text x="70" y="860" font-family="Arial, sans-serif" font-size="10" fill="#4a5568">External Systems / Monitoring</text>
+    
+    <rect x="220" y="790" width="20" height="12" fill="#fc8181" rx="2"/>
+    <text x="250" y="800" font-family="Arial, sans-serif" font-size="10" fill="#4a5568">Lab Analyzers (ASTM/HL7)</text>
+    
+    <!-- Protocol indicators -->
+    <text x="220" y="830" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#4a5568">Protocols:</text>
+    <text x="220" y="848" font-family="Arial, sans-serif" font-size="9" fill="#718096">• FHIR R4 - Healthcare interoperability</text>
+    <text x="220" y="863" font-family="Arial, sans-serif" font-size="9" fill="#718096">• ASTM LIS2-A2 / HL7 - Analyzer communication</text>
+  </g>
+  
+  <!-- ==================== KEY STANDARDS BOX ==================== -->
+  <g id="standards">
+    <rect x="440" y="750" width="320" height="130" rx="8" fill="white" stroke="#e2e8f0" stroke-width="1" filter="url(#shadow)"/>
+    <text x="460" y="775" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2d3748">Key Standards &amp; Compliance</text>
+    
+    <text x="460" y="798" font-family="Arial, sans-serif" font-size="10" fill="#4a5568">• HL7 FHIR R4 — Primary interoperability</text>
+    <text x="460" y="815" font-family="Arial, sans-serif" font-size="10" fill="#4a5568">• ISO 15189 — Lab accreditation support</text>
+    <text x="460" y="832" font-family="Arial, sans-serif" font-size="10" fill="#4a5568">• HIPAA / GDPR — Privacy compliance</text>
+    <text x="460" y="849" font-family="Arial, sans-serif" font-size="10" fill="#4a5568">• SLIPTA — African lab accreditation</text>
+    <text x="460" y="866" font-family="Arial, sans-serif" font-size="10" fill="#4a5568">• TLS 1.2+ / AES-256 — Encryption</text>
+  </g>
+  
+  <!-- ==================== TECH STACK BOX ==================== -->
+  <g id="tech-stack">
+    <rect x="780" y="750" width="400" height="130" rx="8" fill="white" stroke="#e2e8f0" stroke-width="1" filter="url(#shadow)"/>
+    <text x="800" y="775" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2d3748">Technology Stack</text>
+    
+    <text x="800" y="798" font-family="Arial, sans-serif" font-size="10" fill="#4a5568">Frontend: React 18 + Carbon Design System</text>
+    <text x="800" y="815" font-family="Arial, sans-serif" font-size="10" fill="#4a5568">Backend: Java 21 + Spring Boot 3.x</text>
+    <text x="800" y="832" font-family="Arial, sans-serif" font-size="10" fill="#4a5568">Database: PostgreSQL 14+</text>
+    <text x="800" y="849" font-family="Arial, sans-serif" font-size="10" fill="#4a5568">FHIR Server: HAPI FHIR JPA 6.x</text>
+    <text x="800" y="866" font-family="Arial, sans-serif" font-size="10" fill="#4a5568">Deployment: Docker + Docker Compose</text>
+  </g>
+  
+</svg>
