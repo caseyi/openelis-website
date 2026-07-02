@@ -1,0 +1,87 @@
+<!--meta {"title":"Vector & Reservoir Surveillance — OpenELIS Global","desc":"Pooled testing, collection-lot management, species reference data, and surveillance reporting for mosquito, rodent, flea, and tick programs — in the same open-source LIMS as your clinical work.","path":"/capabilities/vector-reservoir/","active":"one-health","og":"/assets/screenshots/homepage/home-qc-dashboard.png"} -->
+<!-- TODO(seed): hero + "What it looks like" screenshots pending seeded vector data on the Indonesia demo.
+     Vector identification/surveillance views 404 or need seeded pools+identifications to render. -->
+<section class="hero">
+  <div class="row">
+    <div class="col" style="flex-basis:100%; max-width:820px; margin:0 auto; text-align:center;">
+      <p class="crumb" style="text-align:center;">Home › Capabilities › Vector &amp; Reservoir Surveillance</p>
+      <h1>Vector and reservoir surveillance, in your LIMS</h1>
+      <p class="lead">Pooled testing, collection-lot management, species reference data, and the surveillance reporting your ministry actually files. Built for public-health programs that need every mosquito, rodent, and flea in the dataset — not in a parallel spreadsheet.</p>
+      <a class="btn btn-orange" href="/getting-started/demo/">Try the demo</a>
+      <a class="btn btn-ghost" href="/capabilities/one-health/" style="margin-left:12px;">Part of One Health</a>
+    </div>
+  </div>
+</section>
+
+<svg class="wave" viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z" fill="#00695c"/></svg>
+
+<section class="section">
+  <div class="wrap narrow">
+    <h2>Why it matters</h2>
+    <p class="lead-copy">Vector surveillance — mosquito, rodent, flea, and tick collection programs — is the early-warning system for arboviruses, plague, leptospirosis, and outbreak-prone diseases that don't make headlines until they do. Most lab software has no model for the entities surveillance programs actually work with: collection lots, pools, species hierarchies. OpenELIS adds those as first-class entities in the same LIMS that handles the clinical work — so a positive pool can trigger a reflex follow-up on the same platform.</p>
+  </div>
+</section>
+
+<section class="section soft">
+  <div class="wrap">
+    <h2 class="center">Key capabilities</h2>
+    <div class="grid">
+      <div class="card">
+        <span class="badge"><span class="ic" style="--i:url('/_assets/icons/box.svg')"></span></span>
+        <h3>Collection-lot management</h3>
+        <p>A trap, a transect, a night's catch — a "lot" is the right abstraction, not a single sample. Collection lots carry method, GPS, time window, weather, and species composition; sub-samples and pools roll up to the lot.</p>
+      </div>
+      <div class="card">
+        <span class="badge"><span class="ic" style="--i:url('/_assets/icons/chemistry.svg')"></span></span>
+        <h3>Pooled testing built in</h3>
+        <p>Configurable pool sizes and pooling logic. Track which specimens went into which pool, the dilution ratio, and the rolled-up positivity rate at pool, lot, and site level — with deconvolution to make a positive pool actionable at the specimen level.</p>
+      </div>
+      <div class="card">
+        <span class="badge"><span class="ic" style="--i:url('/_assets/icons/microscope.svg')"></span></span>
+        <h3>Species reference data</h3>
+        <p>Mosquitoes (<em>Aedes aegypti</em>, <em>Anopheles gambiae</em>, <em>Culex</em>), rodents, fleas, ticks. A hierarchical taxonomy (family → genus → species) ships with the module so records use validated names, editable per deployment.</p>
+      </div>
+      <div class="card">
+        <span class="badge"><span class="ic" style="--i:url('/_assets/icons/chart--line.svg')"></span></span>
+        <h3>Surveillance reporting</h3>
+        <p>Dashboards plus surveillance report exports for ministry submission, including the Vector Host Index — blood-meal analysis and Human Blood Index — the metrics arbovirus risk assessment actually needs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap narrow">
+    <h2>Under the hood</h2>
+    <p class="lead-copy" style="margin-bottom:20px;">Vector &amp; reservoir surveillance reuses the same OpenELIS sample/test/result core, with two additions: the <strong>collection lot</strong> (a parent grouping specimens) and the <strong>pool</strong> (a derived sample of multiple specimens with a known dilution ratio). Both are first-class entities; the rest is config.</p>
+    <div class="uth">
+      <ul>
+        <li><strong>CollectionLot model.</strong> Collection metadata (GPS, time window, trap type, conditions); specimen list with per-specimen species and stage.</li>
+        <li><strong>Pool entity.</strong> Configurable pool size; dilution ratios captured at creation; positivity traceable specimen → pool → lot → site.</li>
+        <li><strong>Species reference.</strong> Hierarchical taxonomy editable in admin; new species addable per deployment.</li>
+        <li><strong>Lab interoperability.</strong> Vector PCR results from connected analyzers flow through the same analyzer integration framework as clinical samples — no parallel pipeline.</li>
+        <li><strong>Audit trail.</strong> Same event model as clinical — chain of custody intrinsic to the design.</li>
+      </ul>
+      <p style="margin:14px 0 0; font-size:15px; color:var(--ink-soft);"><strong>Standards:</strong> FHIR Specimen resources with extensions for pool/lot abstractions; reportable to DHIS2 and SORMAS via the OpenELIS surveillance integration layer.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section soft">
+  <div class="wrap">
+    <h2 class="center">Powered by the OpenELIS platform</h2>
+    <p class="lead-copy" style="text-align:center; max-width:720px; margin:0 auto 32px;">Vector surveillance runs on the same shared engine as every other domain — the same interoperability, quality control, security, and storage.</p>
+    <div class="grid">
+      <div class="card"><h3 style="font-size:17px;">Interoperability</h3><p>Surveillance data flows to DHIS2, SORMAS, and the wider health network automatically. <a class="demo-link" href="/features-and-functionality/">See platform →</a></p></div>
+      <div class="card"><h3 style="font-size:17px;">Quality control</h3><p>The same QC engine governs vector PCR and identification methods. <a class="demo-link" href="/features-and-functionality/">See platform →</a></p></div>
+      <div class="card"><h3 style="font-size:17px;">Security &amp; audit</h3><p>RBAC, SSO, and full chain-of-custody logging across every specimen. <a class="demo-link" href="/features-and-functionality/">See platform →</a></p></div>
+      <div class="card"><h3 style="font-size:17px;">Analyzer integration</h3><p>PCR instruments connect through the same bidirectional interfaces as clinical analyzers. <a class="demo-link" href="/analyzers/">See platform →</a></p></div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-band">
+  <h2>Running a vector surveillance program?</h2>
+  <p>OpenELIS already handles the lab side, and the vector-specific surveillance layer is built and ready. Let's talk about deployment.</p>
+  <a class="btn btn-orange" href="/getting-started/contact/">Contact us</a>
+</div>

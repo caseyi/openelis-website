@@ -105,6 +105,13 @@ h1, h2, h3 { line-height: 1.2; }
 /* "Why it matters" evidence callout */
 .why { border-left: 4px solid var(--teal); background: #f2f8f7; padding: 14px 18px; border-radius: 0 8px 8px 0; margin: 18px 0 0; font-size: 15px; color: var(--ink-soft); }
 .why strong { color: var(--teal-d); }
+
+/* Publication list */
+.pub { padding: 16px 0; border-bottom: 1px solid var(--line); }
+.pub .meta { font-size: 12px; color: var(--purple); font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
+.pub h3 { font-size: 17px; margin: 6px 0 4px; color: var(--ink); }
+.pub .authors { font-size: 14px; color: var(--ink-soft); margin: 0 0 6px; }
+.pub a { font-weight: 600; }
 .card h3 { font-size: 19px; color: var(--teal-d); margin: 0 0 10px; }
 .card p { margin: 0; color: var(--ink-soft); font-size: 15px; }
 
