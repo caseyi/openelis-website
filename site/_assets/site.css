@@ -123,6 +123,22 @@ h1, h2, h3 { line-height: 1.2; }
 .field input:focus, .field select:focus, .field textarea:focus { outline: 2px solid var(--teal); outline-offset: 0; border-color: var(--teal); }
 form button.btn { border: none; cursor: pointer; }
 .form-note { font-size: 13px; color: var(--gray); margin-top: 10px; }
+
+/* Logos, badges, team, partners */
+.logo-band { display: flex; align-items: center; justify-content: center; gap: 32px; flex-wrap: wrap; }
+.logo-band img { height: 54px; width: auto; }
+.badge-row { display: flex; flex-wrap: wrap; gap: 32px; justify-content: center; align-items: flex-start; }
+.badge-row figure { margin: 0; text-align: center; width: 160px; }
+.badge-row img { height: 68px; width: auto; max-width: 150px; object-fit: contain; }
+.badge-row figcaption { font-size: 13px; color: var(--ink-soft); margin-top: 10px; }
+.team-grid { display: flex; flex-wrap: wrap; gap: 28px; justify-content: center; }
+.team-member { width: 170px; text-align: center; }
+.team-member img { width: 108px; height: 108px; border-radius: 999px; object-fit: cover; box-shadow: 0 4px 14px rgba(0,0,0,.14); }
+.team-member h3 { font-size: 16px; margin: 12px 0 2px; color: var(--ink); }
+.team-member p { font-size: 13px; color: var(--ink-soft); margin: 0; }
+.partner-grid { display: flex; flex-wrap: wrap; gap: 18px; justify-content: center; align-items: center; }
+.partner-grid figure { margin: 0; background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 16px 22px; display: flex; align-items: center; justify-content: center; width: 175px; height: 96px; }
+.partner-grid img { max-height: 54px; max-width: 130px; width: auto; object-fit: contain; }
 .card h3 { font-size: 19px; color: var(--teal-d); margin: 0 0 10px; }
 .card p { margin: 0; color: var(--ink-soft); font-size: 15px; }
 
