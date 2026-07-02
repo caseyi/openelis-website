@@ -112,6 +112,17 @@ h1, h2, h3 { line-height: 1.2; }
 .pub h3 { font-size: 17px; margin: 6px 0 4px; color: var(--ink); }
 .pub .authors { font-size: 14px; color: var(--ink-soft); margin: 0 0 6px; }
 .pub a { font-weight: 600; }
+
+/* Contact form */
+.form-grid { display: flex; flex-wrap: wrap; gap: 16px; }
+.field { flex: 1 1 240px; display: flex; flex-direction: column; }
+.field.full { flex-basis: 100%; }
+.field label { font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+.field input, .field select, .field textarea { font: inherit; padding: 11px 12px; border: 1px solid var(--line); border-radius: 8px; background: #fff; color: var(--ink); width: 100%; }
+.field textarea { min-height: 130px; resize: vertical; }
+.field input:focus, .field select:focus, .field textarea:focus { outline: 2px solid var(--teal); outline-offset: 0; border-color: var(--teal); }
+form button.btn { border: none; cursor: pointer; }
+.form-note { font-size: 13px; color: var(--gray); margin-top: 10px; }
 .card h3 { font-size: 19px; color: var(--teal-d); margin: 0 0 10px; }
 .card p { margin: 0; color: var(--ink-soft); font-size: 15px; }
 
