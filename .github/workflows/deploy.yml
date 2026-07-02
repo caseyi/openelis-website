@@ -1,0 +1,76 @@
+name: Build & deploy site
+
+# Builds the static site (site/ -> dist/) and syncs it to Bluehost over secure FTP.
+#
+# Triggers:
+#   - Push to main: auto-deploys to STAGING (safe while WordPress is still live on production).
+#   - Manual run (Actions tab -> "Run workflow"): choose staging or production.
+# After cutover, change the push-to-main branch below to deploy to production if you want.
+#
+# Required GitHub secrets (Settings -> Secrets and variables -> Actions -> Secrets):
+#   FTP_SERVER     e.g. ftp.openelis-global.org   (Bluehost FTP host)
+#   FTP_USERNAME   the FTP account username
+#   FTP_PASSWORD   the FTP account password
+#
+# Required GitHub variables (same page -> Variables):
+#   STAGING_DIR    remote docroot for the staging subdomain, e.g. /public_html/new/
+#   PROD_DIR       remote docroot for the live site,          e.g. /public_html/
+#
+# See docs/deploy-setup.md for the full walkthrough.
+
+on:
+  workflow_dispatch:
+    inputs:
+      target:
+        description: "Where to deploy"
+        type: choice
+        options: [staging, production]
+        default: staging
+  push:
+    branches: [main]
+
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Build static site
+        run: node site/build.mjs
+
+      - name: Choose target directory
+        id: target
+        run: |
+          # Production ONLY on an explicit manual run with target=production.
+          # Push to main deploys to staging (safe during the WordPress transition).
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.target }}" = "production" ]; then
+            echo "dir=${{ vars.PROD_DIR }}" >> "$GITHUB_OUTPUT"
+            echo "label=production" >> "$GITHUB_OUTPUT"
+          else
+            echo "dir=${{ vars.STAGING_DIR }}" >> "$GITHUB_OUTPUT"
+            echo "label=staging" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Deploy to Bluehost (FTPS)
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          local-dir: ./dist/
+          server-dir: ${{ steps.target.outputs.dir }}
+          # Keep WordPress/other files that live outside our build from being deleted.
+          # state file tracks what we've uploaded so only changed files transfer.
+          dangerous-clean-slate: false
+
+      - name: Summary
+        run: echo "Deployed to ${{ steps.target.outputs.label }} (${{ steps.target.outputs.dir }})" >> "$GITHUB_STEP_SUMMARY"
