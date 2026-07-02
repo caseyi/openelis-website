@@ -25,25 +25,27 @@ About ▾                                                    (menu)
   ├─ Partners                                              /partners/
   └─ Publications                                          /publications/
 Capabilities ▾                                             (menu)                    [RESTRUCTURED]
-  ├─ Diagnostic Testing                                    /capabilities/diagnostic-testing/   [existing, relocated]
   ├─ Analyzer Integration                                  /capabilities/analyzer-integration/ [NEW]
   ├─ Environmental Testing                                 /capabilities/environmental-testing/ [NEW]
   ├─ Vector & Reservoir Surveillance                       /capabilities/vector-reservoir/      [NEW]
   ├─ Inventory Management                                  /capabilities/inventory-management/  [NEW]
   ├─ Sample & Storage Management                           /capabilities/sample-storage/        [NEW]
-  ├─ FHIR & Interoperability                               /capabilities/fhir/                  [existing, relocated]
+  ├─ Diagnostic Testing                                    (external — docs site)              [not a page]
+  ├─ FHIR & Interoperability                               (external — FHIR IG)                [not a page]
   └─ All Features →                                        /features/                          [existing catch-all preserved]
 Roadmap                                                    /roadmap/                           [NEW, top-level]
 Getting Started ▾                                          (menu)
   ├─ Demo                                                  /getting-started/demo/
   ├─ Installation                                          /getting-started/install/
   └─ Quick Start Guide                                     /getting-started/quickstart/
-Documentation                                              (external link)                    [no change]
+Documentation                                              https://docs.openelis-global.org    (external)
 Community ▾                                                (menu)
   ├─ Slack                                                 (external)
   ├─ GitHub                                                (external)
   └─ Contribute                                            /community/contribute/
 ```
+
+> **Note on Diagnostic Testing and FHIR & Interoperability:** These are cross-cutting reference areas, not capability pages. They belong in the Capabilities menu because visitors browse "what does OpenELIS do?" and expect to find them there, but the actual content lives outside openelis-global.org — on `docs.openelis-global.org` and in the FHIR Implementation Guide respectively. Treating them as external links avoids duplicating content that belongs with the docs, and gives the site a lighter maintenance burden.
 
 ### What's new
 
@@ -57,12 +59,17 @@ Community ▾                                                (menu)
 | Sample & Storage Management | `/capabilities/sample-storage/` | New page, Phase 4.5 |
 | Roadmap | `/roadmap/` | New top-level, Phase 4.6 |
 
+### What's external (links out, not pages we maintain)
+
+| Nav item | Destination | Rationale |
+|----------|-------------|-----------|
+| Diagnostic Testing | `docs.openelis-global.org` (specific page TBD — whichever is the best landing for "what tests does OpenELIS support") | Content lives with the docs. Maintaining a parallel marketing page risks drift. |
+| FHIR & Interoperability | The OpenELIS FHIR Implementation Guide (URL TBD — Casey to provide the canonical IG URL) | The IG is the authoritative source; linking keeps one source of truth. |
+
 ### What's relocated (not renamed, not retired)
 
 | Nav item | Old location | New location | Action |
 |----------|--------------|--------------|--------|
-| Diagnostic Testing | Under "Features and Functionality" | Under "Capabilities" | Move + redirect |
-| FHIR & Interoperability | Under "Features and Functionality" | Under "Capabilities" | Move + redirect |
 | All Features (catch-all) | Top-level "Features and Functionality" | Under "Capabilities" as "All Features →" | Preserve existing URL, reframe as overflow page |
 
 ### What's retired
@@ -91,36 +98,37 @@ Every nav entry must have an unambiguous destination. This table is authoritativ
 | About | Governance & Stewardship | `/governance/` | Page |
 | About | Partners | `/partners/` | Page |
 | About | Publications | `/publications/` | Page |
-| Capabilities | Diagnostic Testing | `/capabilities/diagnostic-testing/` | Page |
 | Capabilities | Analyzer Integration | `/capabilities/analyzer-integration/` | Page |
 | Capabilities | Environmental Testing | `/capabilities/environmental-testing/` | Page |
 | Capabilities | Vector & Reservoir Surveillance | `/capabilities/vector-reservoir/` | Page |
 | Capabilities | Inventory Management | `/capabilities/inventory-management/` | Page |
 | Capabilities | Sample & Storage Management | `/capabilities/sample-storage/` | Page |
-| Capabilities | FHIR & Interoperability | `/capabilities/fhir/` | Page |
+| Capabilities | Diagnostic Testing | `https://docs.openelis-global.org/` (specific page TBD) | External link |
+| Capabilities | FHIR & Interoperability | OpenELIS FHIR IG (URL TBD — Casey to confirm) | External link |
 | Capabilities | All Features → | `/features/` | Page (overflow) |
 | Root | Roadmap | `/roadmap/` | Page |
 | Getting Started | Demo | `/getting-started/demo/` | Page |
 | Getting Started | Installation | `/getting-started/install/` | Page |
 | Getting Started | Quick Start Guide | `/getting-started/quickstart/` | Page |
-| Root | Documentation | (external URL — Casey to confirm canonical) | External link |
+| Root | Documentation | `https://docs.openelis-global.org` | External link |
 | Community | Slack | (external URL — Casey to confirm) | External link |
 | Community | GitHub | `https://github.com/I-TECH-UW/OpenELIS-Global-2` | External link |
 | Community | Contribute | `/community/contribute/` | Page |
 
-**Items Casey still needs to confirm:** exact current paths for About, Governance, Publications, and the Documentation external URL. Default values assumed for now; update this table during review.
+**Items Casey still needs to confirm:** exact current paths for About, Governance, Publications; Slack community URL; specific docs.openelis-global.org page to use for Diagnostic Testing; and the canonical FHIR Implementation Guide URL for FHIR & Interoperability.
 
 ---
 
 ## 4. Mobile menu behavior
 
-The expanded Capabilities menu has 8 items — too many for a mobile dropdown that opens inline without scrolling past the fold.
+The expanded Capabilities menu has 8 items — still fits comfortably in a desktop dropdown, but worth specifying for mobile so it doesn't collapse past the fold.
 
 ### Pattern
 
 - **≥ 768px:** Horizontal top nav with hover dropdowns. Capabilities dropdown as a single column of 8 links.
 - **< 768px:** Full-screen slide-in drawer from the right. Accordion-style submenus: tapping "Capabilities" expands the list in-place, pushing other top-level items down. Only one top-level section expanded at a time — tapping another collapses the first.
-- **Capabilities dropdown internal ordering (mobile + desktop):** Diagnostic Testing first (flagship overview), then the five new capability pages in workplan priority order (Analyzer Integration → Environmental Testing → Vector & Reservoir → Inventory Management → Sample & Storage), then FHIR, then "All Features →" as the last row (visually separated with a divider line).
+- **Capabilities dropdown internal ordering (mobile + desktop):** Five new capability pages in workplan priority order first (Analyzer Integration → Environmental Testing → Vector & Reservoir → Inventory Management → Sample & Storage), then the two external-link items (Diagnostic Testing → docs, FHIR & Interoperability → IG) visually separated with a divider line, then "All Features →" as the last row below another divider.
+- **External-link visual indicator:** Diagnostic Testing and FHIR & Interoperability get a small `↗` arrow icon after the label so users know they'll leave the site.
 
 ### Accessibility
 
@@ -133,16 +141,15 @@ The expanded Capabilities menu has 8 items — too many for a mobile dropdown th
 
 ## 5. Redirect rules
 
-Any URL that changes under this restructure needs a 301 redirect to preserve SEO and inbound links. The relocations below are the only ones expected in this cycle.
+Because Diagnostic Testing and FHIR are handled as external links (not migrated pages), this cycle introduces very few URL changes. Mostly we're adding new URLs, not moving old ones.
 
-| Old URL | New URL | Type |
-|---------|---------|------|
-| `/features/diagnostic-testing/` (if that's the current path) | `/capabilities/diagnostic-testing/` | 301 |
-| `/features/fhir/` (if current) | `/capabilities/fhir/` | 301 |
-| `/features/` | Unchanged — stays at `/features/` as the "All Features" overflow | — |
-| `/features/analyzer-integration/` (if anyone ever linked here) | `/capabilities/analyzer-integration/` | 301 |
+| Old URL | New URL | Type | Notes |
+|---------|---------|------|-------|
+| `/features/diagnostic-testing/` (if a page with this slug exists on WP) | `https://docs.openelis-global.org/...` | 301 | Only if the current WP site has this page; check before writing the rule |
+| `/features/fhir/` (if a page with this slug exists on WP) | OpenELIS FHIR IG URL | 301 | Same — audit first |
+| `/features/` | Unchanged — stays at `/features/` as the "All Features" overflow | — | |
 
-**Note:** The actual current paths for Diagnostic Testing and FHIR need Casey to confirm (the WordPress menu order and slug history aren't fully known from the workplan). If those pages are already at `/capabilities/...`, no redirect is needed. If they're at `/features/...` or somewhere else, add the 301.
+**Audit first, redirect second.** Before writing any 301s, run through the current WordPress menu and page list with Casey to identify which Diagnostic-Testing-like or FHIR-like URLs actually exist. If no indexed page exists at that URL, no redirect is needed.
 
 **Redirect mechanism:** WordPress plugin (Redirection, Rank Math, or Yoast Premium) — whichever the site already uses. Do not rely on `.htaccess`-level redirects without confirming the WordPress stack supports that path.
 

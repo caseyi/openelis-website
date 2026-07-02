@@ -1,0 +1,102 @@
+<!--meta {"title":"One Health Surveillance — OpenELIS Global","desc":"One open-source platform for human, animal/vector, and environmental surveillance. FHIR-native, one audit trail, one source of truth — the LIMS built for integrated One Health programs.","path":"/capabilities/one-health/","active":"one-health","og":"/assets/screenshots/environmental-testing/environmental-testing-compliance-dashboard.png"} -->
+<section class="hero">
+  <div class="row">
+    <div class="col">
+      <p class="crumb">Home › Capabilities › One Health</p>
+      <h1>One platform for One Health surveillance</h1>
+      <p class="lead">Human, animal and vector, environmental — three surveillance domains in a single FHIR-native laboratory system. One audit trail, one security model, one source of truth. No bolt-ons, no parallel spreadsheets.</p>
+      <a class="btn btn-orange" href="/getting-started/demo/">Try the demo</a>
+      <a class="btn btn-ghost" href="/why-openelis/" style="margin-left:12px;">Why ministries choose it</a>
+    </div>
+    <div class="col">
+      <img src="/assets/screenshots/environmental-testing/environmental-testing-compliance-dashboard.png" alt="OpenELIS environmental compliance dashboard — one of three One Health surveillance domains">
+    </div>
+  </div>
+</section>
+
+<svg class="wave" viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z" fill="#00695c"/></svg>
+
+<section class="section">
+  <div class="wrap narrow">
+    <h2>Why it matters</h2>
+    <p class="lead-copy">One Health means surveillance across people, animals, vectors, and the environment — because zoonotic spillover, antimicrobial resistance, and waterborne disease don't respect the boundaries between them. Yet most laboratory systems cover only the clinical corner, leaving ministries to run vector programs on paper and environmental monitoring in spreadsheets, then reconcile three siloed records at the end of every quarter. OpenELIS handles all three domains in one system. A zoonotic signal in animal surveillance sits in the same database as the human cases it might explain — with the same accreditation evidence and the same FHIR-native data layer feeding national surveillance.</p>
+  </div>
+</section>
+
+<section class="section soft">
+  <div class="wrap">
+    <h2 class="center">Three domains, one system</h2>
+    <div class="grid">
+      <div class="card">
+        <span class="badge"><span class="ic" style="--i:url('/_assets/icons/user.svg')"></span></span>
+        <h3>Human health</h3>
+        <p>The full clinical testing lifecycle — patient registration, orders, results, validation, and reporting across HIV, TB, viral load, chemistry, hematology, and pathology — with EMR interoperability. Fifteen-plus years mature, deployed at national scale.</p>
+        <a class="demo-link" href="/features-and-functionality/">Explore clinical capabilities →</a>
+      </div>
+      <div class="card">
+        <span class="badge"><span class="ic" style="--i:url('/_assets/icons/microscope.svg')"></span></span>
+        <h3>Animal &amp; vector</h3>
+        <p>Vector and reservoir surveillance — trap-site registration, species taxonomy and identification, and pooled specimen testing for zoonotic and arboviral programs. Built for entomology and surveillance teams, not retrofitted from clinical.</p>
+        <a class="demo-link" href="/capabilities/vector-reservoir/">Explore vector surveillance →</a>
+      </div>
+      <div class="card">
+        <span class="badge"><span class="ic" style="--i:url('/_assets/icons/rain.svg')"></span></span>
+        <h3>Environmental</h3>
+        <p>Water, soil, air, and waste against configurable quality regimes, with automatic compliance flags — powered by a regulatory evaluation engine that also handles food safety, pharmaceutical, and product testing.</p>
+        <a class="demo-link" href="/capabilities/environmental-testing/">Explore regulatory &amp; compliance testing →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <h2 class="center">See it in OpenELIS</h2>
+    <div class="grid">
+      <figure class="card" style="padding:0; overflow:hidden;">
+        <div class="shot-hero"><img src="/assets/screenshots/homepage/home-qc-dashboard.png" alt="Quality control dashboard in OpenELIS"></div>
+        <figcaption style="padding:16px 20px;">Clinical quality control — Westgard-rule monitoring and Levey-Jennings charts across the human-health testing lifecycle.</figcaption>
+      </figure>
+      <figure class="card" style="padding:0; overflow:hidden;">
+        <div class="shot-hero"><img src="/assets/screenshots/environmental-testing/environmental-testing-compliance-dashboard.png" alt="Environmental compliance dashboard in OpenELIS"></div>
+        <figcaption style="padding:16px 20px;">Environmental compliance — regulatory pass/fail evaluation, exceedances, and per-site trends, in the same system.</figcaption>
+      </figure>
+    </div>
+    <!-- REVIEWER NOTE (Casey): A vector-surveillance screenshot belongs here as a third tile,
+         but the vector identification/surveillance views 404 or require seeded data on both
+         testing and indonesiademo instances. Seed a vector pool + identification case, then
+         re-capture (tests/docs/vector-surveillance.docs.spec.ts on the Indonesia demo). -->
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap narrow">
+    <h2>What makes it actually integrated</h2>
+    <p class="lead-copy" style="margin-bottom:24px;">One Health isn't three applications sharing a login. Every domain runs on the same OpenELIS core:</p>
+    <div class="uth">
+      <ul>
+        <li><strong>One data model.</strong> Human, animal, and environmental samples are all first-class sample types on the same sample/test/result core — not separate databases stitched together.</li>
+        <li><strong>One security &amp; audit model.</strong> Role-based access, chain of custody, and full audit logging apply identically across all three domains. One accreditation story, not three.</li>
+        <li><strong>FHIR-native throughout.</strong> Results from every domain surface as FHIR resources, ready for national surveillance systems, data hubs, and cross-domain analysis.</li>
+        <li><strong>One operational picture.</strong> The same dashboards, worklists, and reporting engine serve clinical, vector, and environmental teams — one system for staff to learn, one system to maintain.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section soft">
+  <div class="wrap narrow" style="text-align:center;">
+    <h2 style="justify-content:center;">Built on proven infrastructure</h2>
+    <p class="lead-copy">OpenELIS is standards-aligned for the programs ministries are accountable for — ISO 15189 and ISO 17025 laboratory accreditation, WHO SLIPTA improvement, and FHIR R4 interoperability. The clinical foundation underneath One Health has run national laboratory networks for over 15 years across 26+ countries. Environmental and vector surveillance extend that same proven core — the Indonesia SILNAS partnership runs clinical and environmental testing together in one deployment today.</p>
+    <p style="margin-top:20px;">
+      <a class="btn btn-teal" href="/why-openelis/" style="margin:6px;">The evidence &amp; value case</a>
+      <a class="btn btn-outline" href="/getting-started/demo/" style="margin:6px;">Try the live demo</a>
+    </p>
+  </div>
+</section>
+
+<div class="cta-band">
+  <h2>Running an integrated surveillance program?</h2>
+  <p>One system for human, animal, and environmental health — configurable to your country's standards. Let's talk about deployment.</p>
+  <a class="btn btn-orange" href="/getting-started/contact/">Contact us</a>
+</div>

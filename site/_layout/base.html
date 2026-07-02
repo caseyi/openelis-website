@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{TITLE}}</title>
+  <meta name="description" content="{{DESC}}">
+  <link rel="canonical" href="https://openelis-global.org{{PATH}}">
+
+  <!-- Open Graph / social cards (fixes the blank og:image on the live WP site) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="OpenELIS Global">
+  <meta property="og:title" content="{{TITLE}}">
+  <meta property="og:description" content="{{DESC}}">
+  <meta property="og:url" content="https://openelis-global.org{{PATH}}">
+  <meta property="og:image" content="https://openelis-global.org{{OG_IMAGE}}">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- hreflang: GTranslate proxy language subdomains (multilingual SEO preserved off WordPress) -->
+  <link rel="alternate" hreflang="en" href="https://openelis-global.org{{PATH}}">
+  <link rel="alternate" hreflang="fr" href="https://fr.openelis-global.org{{PATH}}">
+  <link rel="alternate" hreflang="x-default" href="https://openelis-global.org{{PATH}}">
+
+  <!-- Structured data for search + AI-assisted discovery -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "OpenELIS Global",
+    "applicationCategory": "Laboratory Information System",
+    "operatingSystem": "Docker / Linux",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "license": "https://www.mozilla.org/en-US/MPL/2.0/",
+    "url": "https://openelis-global.org",
+    "description": "Open-source Laboratory Information System (LIMS) for clinical, environmental, and public-health laboratories. FHIR-native, no licensing fees."
+  }
+  </script>
+
+  <link rel="stylesheet" href="/_assets/site.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="bar">
+      <a class="logo" href="/">
+        <img src="/_assets/openelis-logo.png" alt="OpenELIS Global">
+      </a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+      <nav class="nav" aria-label="Primary">
+        <a href="/features-and-functionality/" data-nav="features">Capabilities</a>
+        <a href="/capabilities/one-health/" data-nav="one-health">One Health</a>
+        <a href="/why-openelis/" data-nav="why-openelis">Why OpenELIS</a>
+        <a href="/roadmap/" data-nav="roadmap">Roadmap</a>
+        <a href="/about/" data-nav="about">About</a>
+        <a href="/getting-started/" data-nav="getting-started">Getting Started</a>
+        <a href="https://docs.openelis-global.org">Docs</a>
+        <a class="cta" href="/getting-started/demo/">Try the Demo</a>
+        <!-- GTranslate switcher mounts here (snippet added at deploy) -->
+        <div class="gtranslate_wrapper"></div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+{{CONTENT}}
+  </main>
+
+  <footer class="site-footer">
+    <div class="cols">
+      <div>
+        <h4>Project</h4>
+        <a href="/about/">About OpenELIS</a>
+        <a href="/roadmap/">Roadmap</a>
+        <a href="/about/published-works/">Published Works</a>
+        <a href="/about/partners/">Partners</a>
+      </div>
+      <div>
+        <h4>Capabilities</h4>
+        <a href="/features-and-functionality/">All Features</a>
+        <a href="/capabilities/environmental-testing/">Environmental Testing</a>
+        <a href="/analyzers/">Analyzer Integration</a>
+        <a href="/pathology-2/">Pathology</a>
+      </div>
+      <div>
+        <h4>Get Started</h4>
+        <a href="/getting-started/demo/">Live Demo</a>
+        <a href="/getting-started/download/">Download</a>
+        <a href="https://docs.openelis-global.org">Documentation</a>
+        <a href="/getting-started/contact/">Contact</a>
+      </div>
+      <div>
+        <h4>Community</h4>
+        <a href="https://github.com/I-TECH-UW/OpenELIS-Global-2/">GitHub</a>
+        <a href="https://talk.openelis-global.org/">Forum</a>
+        <a href="/community/get-involved/">Get Involved</a>
+      </div>
+    </div>
+    <div class="base">
+      OpenELIS Global is stewarded by
+      <a href="https://digi.uw.edu" style="display:inline; color:#fff; text-decoration:underline;">DIGI at the University of Washington</a>,
+      with support from CDC, PEPFAR, and implementing partners worldwide. Open-source under the Mozilla Public License.
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var t = document.querySelector('.nav-toggle'), n = document.querySelector('.nav');
+      if (t && n) t.addEventListener('click', function () {
+        var open = n.classList.toggle('open');
+        t.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      var active = document.body.getAttribute('data-active');
+      if (active) { var a = document.querySelector('.nav a[data-nav="' + active + '"]'); if (a) a.classList.add('active'); }
+    })();
+  </script>
+</body>
+</html>
