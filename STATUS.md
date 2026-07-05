@@ -57,10 +57,11 @@ Phase 1 done. Phase 2 specs drafted, awaiting one-pass Casey review. Phase 3 hom
 
 | Deliverable | Location | Status |
 |-------------|----------|--------|
-| 5.1 Screenshot directory READMEs | `assets/screenshots/{feature}/README.md` | ✅ scaffolded |
-| 5.1 Actual screenshots | `assets/screenshots/{feature}/*.png` | Not yet |
+| 5.1 Screenshot directory READMEs | `assets/screenshots/{feature}/README.md` | ✅ scaffolded; updated 2026-07-05 with actual capture manifests |
+| 5.1 Actual screenshots — shipped pages | `assets/screenshots/{analyzer-integration,inventory-management,sample-storage}/*.png` | ✅ 13 PNGs captured 2026-07-05. Analyzer instruments-list re-captured 14:30 after seed-analyzers ran — 19 analyzers total, 10 Active. Inventory + freezer dashboards still empty (data seeding needed — see cowork-handover-v2/SEEDING-ANALYZERS.md for the pattern that also applies to inventory/storage). |
+| 5.1 Actual screenshots — ENV + Vector | — | Skipped this pass per Casey scope decision (OGC-527 gaps); `_incoming/` staging holds prior captures if needed |
 | 5.2 Demo video embed | — | Pending video from Taib & Herbert (Phase 1.2) |
-| 5.3 Wire screenshots into pages | — | Pending 5.1 |
+| 5.3 Wire screenshots into pages | — | Ready — 13 PNGs available for the Analyzer/Inventory/Sample-Storage feature pages when HTML build kicks off |
 | 5.4 QA pass | — | Pending |
 | 5.5 WordPress publish | — | Pending; WP-exit decision in flight |
 

@@ -1,20 +1,23 @@
 # Inventory Management screenshots
 
-**Captured:** _not yet — Phase 5.1_
-**Demo data:** _TBD — capture session against testing.openelis-global.org_
-**Capturer:** _TBD_
+**Captured:** 2026-07-05 via `openelis-screenshots` Playwright harness
+**Instance:** `indonesiademo.openelis-global.org` (v3.2.1.10, English locale)
+**Capturer:** Cowork (harness on Casey's Mac, run 13:59)
+**Sourced from:** `~/Documents/OpenELIS QA/docs-media/inventory-management/`
 
-## Expected files (from `docs/screenshot-brief.md` §6.4)
+## Files landed
 
-- `inventory-management-dashboard.png` — Populated inventory, mixed stock levels (good / low / out).
-- `inventory-management-item-detail.png` — One item selected, full detail drawer or page.
-- `inventory-management-low-stock-alert.png` — Low stock state (alert banner or highlighted row); annotate the alert.
-- `inventory-management-receive-stock.png` — Receive-stock workflow mid-form.
-- `inventory-management-consumption-history.png` — Item consumption history view.
+- `inventory-management-dashboard.png` — Inventory dashboard (`/inventory`). The one shipped route for the module.
+
+## Not captured (skip + flag per Casey 2026-07-05)
+
+- `inventory-management-item-detail.png` — would need to drill into a specific item via row-action menu; unclear which item to open and whether the slide-out panel is reliably reachable via SPA route.
+- `inventory-management-low-stock-alert.png` — requires seeded data with items below reorder threshold; unclear on `indonesiademo`. Annotation was also required (deferred).
+- `inventory-management-receive-stock.png` — Add Lot / Receive Stock is a modal, not a route; harness doesn't reliably drive modals.
+- `inventory-management-consumption-history.png` — same story: sub-drill within the slide-out panel.
 
 ## Notes
 
-- Reference brief: `/docs/screenshot-brief.md` §6.4
-- Inventory state needs to be set up so a mix of "good / low / out" levels is visible in the same dashboard shot.
-- Receive-stock form should show realistic data (lot number, expiry, quantity) — not blank fields.
-- The dashboard hero shot is the same image used in the homepage What's New band — capture once, reference twice.
+- Only one route (`/inventory`) is exposed at the top level. Drill-in shots need spec extension with modal-driving code or a screenshot walker.
+- The dashboard shot may look sparse depending on seeded inventory state on `indonesiademo`. Casey to review whether it's usable as-is or needs data seeding before publish.
+- Original harness output at `~/Documents/OpenELIS QA/docs-media/inventory-management/` (2 files + walkthrough.webm).
