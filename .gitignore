@@ -45,3 +45,8 @@ tmp/
 # WordPress export dumps (keep these out of the repo — they belong in drive)
 *.sql
 *.wpress
+
+# Local staging build + scratch (do not commit)
+dist-staging/
+site/_tmp/
+assets/screenshots/_incoming/
