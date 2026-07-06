@@ -58,7 +58,7 @@ Phase 1 done. Phase 2 specs drafted, awaiting one-pass Casey review. Phase 3 hom
 | Deliverable | Location | Status |
 |-------------|----------|--------|
 | 5.1 Screenshot directory READMEs | `assets/screenshots/{feature}/README.md` | ✅ scaffolded; updated 2026-07-05 with actual capture manifests |
-| 5.1 Actual screenshots — shipped pages | `assets/screenshots/{analyzer-integration,inventory-management,sample-storage}/*.png` | ✅ 13 PNGs captured 2026-07-05. Analyzer instruments-list re-captured 14:30 after seed-analyzers ran — 19 analyzers total, 10 Active. Inventory + freezer dashboards still empty (data seeding needed — see cowork-handover-v2/SEEDING-ANALYZERS.md for the pattern that also applies to inventory/storage). |
+| 5.1 Actual screenshots — shipped pages | `assets/screenshots/{analyzer-integration,inventory-management,sample-storage}/*.png` | ✅ 13 PNGs captured 2026-07-05. All three capability pages now show populated marketing-quality data. Analyzer: 19 total / 10 Active (after seed-analyzers). Inventory: 20 Total Lots / 5 Expiring Soon / 2 Expired (after seed-inventory). Sample & Storage: 344 sample items / 5 rooms / 11 devices (after seed-storage). Cold Storage Dashboard still shows "0 Storage Units" — `/rest/coldstorage/devices` POST shape unprobed; follow-on. See cowork-handover-v2/SEEDING-*.md. |
 | 5.1 Actual screenshots — ENV + Vector | — | Skipped this pass per Casey scope decision (OGC-527 gaps); `_incoming/` staging holds prior captures if needed |
 | 5.2 Demo video embed | — | Pending video from Taib & Herbert (Phase 1.2) |
 | 5.3 Wire screenshots into pages | — | Ready — 13 PNGs available for the Analyzer/Inventory/Sample-Storage feature pages when HTML build kicks off |
