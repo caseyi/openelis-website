@@ -45,6 +45,7 @@ jobs:
 
       - name: Build static site
         run: node site/build.mjs
+      - name: Smoke test built site (fails workflow before FTP if refs are broken)        run: node site/smoke-test.mjs
 
       - name: Choose target directory
         id: target
