@@ -1,20 +1,26 @@
 name: Build & deploy site
 
-# Builds the static site (site/ -> dist/) and syncs it to Bluehost over secure FTP.
+# Builds the static site (site/ -> dist/) and pushes it to Bluehost via the
+# cPanel API. Replaces the old FTP-Deploy-Action path, which was writing to a
+# chrooted staging folder that wasn't served anywhere — see the 2026-07-29
+# fix commit for context.
 #
 # Triggers:
-#   - Push to main: auto-deploys to STAGING (safe while WordPress is still live on production).
-#   - Manual run (Actions tab -> "Run workflow"): choose staging or production.
-# After cutover, change the push-to-main branch below to deploy to production if you want.
+#   - Push to main: auto-deploys to PRODUCTION (openelis-global.org).
+#   - Manual run (Actions tab -> "Run workflow"): choose production or staging.
 #
 # Required GitHub secrets (Settings -> Secrets and variables -> Actions -> Secrets):
-#   FTP_SERVER     e.g. ftp.openelis-global.org   (Bluehost FTP host)
-#   FTP_USERNAME   the FTP account username
-#   FTP_PASSWORD   the FTP account password
+#   CPANEL_HOST         e.g. box2587.bluehost.com
+#   CPANEL_USER         the cPanel account username
+#   CPANEL_API_TOKEN    a cPanel API token (Preferences -> Manage API Tokens)
 #
 # Required GitHub variables (same page -> Variables):
-#   STAGING_DIR    remote docroot for the staging subdomain, e.g. /public_html/new/
-#   PROD_DIR       remote docroot for the live site,          e.g. /public_html/
+#   PROD_DIR       docroot for the live site,     e.g. public_html/website_4fdc2c4b
+#   STAGING_DIR    docroot for the staging site,  e.g. public_html/openelis-staging
+#
+# Note: staging deploys prefix all root-absolute paths so the site can render
+# under a subpath (e.g. fji.akw.mybluehost.me/openelis-staging/). Production
+# serves at a docroot so no rewrite is needed.
 #
 # See docs/deploy-setup.md for the full walkthrough.
 
@@ -24,8 +30,8 @@ on:
       target:
         description: "Where to deploy"
         type: choice
-        options: [staging, production]
-        default: staging
+        options: [production, staging]
+        default: production
   push:
     branches: [main]
 
@@ -46,34 +52,40 @@ jobs:
       - name: Build static site
         run: node site/build.mjs
 
-      - name: Smoke test built site (fails workflow before FTP if refs are broken)
+      - name: Smoke test built site (fails workflow before deploy if refs are broken)
         run: node site/smoke-test.mjs
 
       - name: Choose target directory
         id: target
         run: |
-          # Production ONLY on an explicit manual run with target=production.
-          # Push to main deploys to staging (safe during the WordPress transition).
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.target }}" = "production" ]; then
-            echo "dir=${{ vars.PROD_DIR }}" >> "$GITHUB_OUTPUT"
-            echo "label=production" >> "$GITHUB_OUTPUT"
-          else
+          # Push to main deploys to PRODUCTION. Manual dispatch can pick staging.
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.target }}" = "staging" ]; then
             echo "dir=${{ vars.STAGING_DIR }}" >> "$GITHUB_OUTPUT"
             echo "label=staging" >> "$GITHUB_OUTPUT"
+            echo "is_staging=1" >> "$GITHUB_OUTPUT"
+          else
+            echo "dir=${{ vars.PROD_DIR }}" >> "$GITHUB_OUTPUT"
+            echo "label=production" >> "$GITHUB_OUTPUT"
+            echo "is_staging=0" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Deploy to Bluehost (FTPS)
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          protocol: ftps
-          local-dir: ./dist/
-          server-dir: ${{ steps.target.outputs.dir }}
-          # Keep WordPress/other files that live outside our build from being deleted.
-          # state file tracks what we've uploaded so only changed files transfer.
-          dangerous-clean-slate: false
+      - name: Prefix-rewrite dist/ for staging subpath
+        if: steps.target.outputs.is_staging == '1'
+        # Staging is served from a subpath (e.g. /openelis-staging/), so root-
+        # absolute paths in built HTML/CSS need to be prefixed. Prod serves at
+        # the docroot so this step is skipped there.
+        run: |
+          find dist -type f \( -name '*.html' -o -name '*.css' \) -print0 | \
+            xargs -0 sed -i 's|="/|="/openelis-staging/|g; s|url('\''/|url('\''/openelis-staging/|g'
+
+      - name: Deploy to Bluehost via cPanel API
+        env:
+          CPANEL_HOST: ${{ secrets.CPANEL_HOST }}
+          CPANEL_USER: ${{ secrets.CPANEL_USER }}
+          CPANEL_API_TOKEN: ${{ secrets.CPANEL_API_TOKEN }}
+        run: python3 site/deploy-cpanel.py "${{ steps.target.outputs.dir }}"
 
       - name: Summary
-        run: echo "Deployed to ${{ steps.target.outputs.label }} (${{ steps.target.outputs.dir }})" >> "$GITHUB_STEP_SUMMARY"
+        run: |
+          echo "Deployed to ${{ steps.target.outputs.label }} (${{ steps.target.outputs.dir }})" >> "$GITHUB_STEP_SUMMARY"
+          echo "See site at ${{ steps.target.outputs.label == 'production' && 'https://openelis-global.org/' || 'https://fji.akw.mybluehost.me/openelis-staging/' }}" >> "$GITHUB_STEP_SUMMARY"
