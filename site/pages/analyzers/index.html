@@ -1,10 +1,10 @@
-<!--meta {"title":"Analyzer Integration — OpenELIS Global","desc":"Bidirectional communication with clinical analyzers over ASTM and HL7, plus CSV/flat-file import. Automatic result import, visual field mapping, and quality control — connect any instrument without custom coding.","path":"/analyzers/","active":"features","og":"/assets/screenshots/features/Analyzer-mapping.png"} -->
+<!--meta {"title":"Analyzer Integration — OpenELIS Global","desc":"If your analyzer speaks ASTM or HL7, OpenELIS already talks to it. Generic protocol drivers mean connecting a new instrument is field mapping in the UI — not custom code, not a vendor project, not a server restart.","path":"/analyzers/","active":"features","og":"/assets/screenshots/features/Analyzer-mapping.png"} -->
 <section class="hero">
   <div class="row">
     <div class="col">
       <p class="crumb">Home › Capabilities › Analyzer Integration</p>
-      <h1>Connect any lab instrument — without custom coding</h1>
-      <p class="lead">Bidirectional communication with clinical analyzers over ASTM and HL7, plus CSV/flat-file import for everything else. Results flow straight from the instrument into patient records — no manual transcription, no transcription errors.</p>
+      <h1>If it speaks ASTM or HL7, OpenELIS already talks to it</h1>
+      <p class="lead">There is no per-instrument development project. OpenELIS ships generic ASTM and HL7 drivers that work with any conforming analyzer out of the box — connecting a new one is a mapping exercise in the admin UI, done in an afternoon by your own team. Plus flat-file import for instruments that only export CSV or Excel.</p>
       <a class="btn btn-orange" href="/getting-started/demo/">Try the demo</a>
       <a class="btn btn-ghost" href="https://github.com/DIGI-UW/openelisglobal-plugins" style="margin-left:12px;">Analyzer plugins</a>
     </div>
@@ -19,50 +19,121 @@
 <section class="section">
   <div class="wrap narrow">
     <h2>Why it matters</h2>
-    <p class="lead-copy">Manual transcription of analyzer results is slow, error-prone, and frustrating for staff — and every transcription error is a potential patient-safety event. Automated interfaces eliminate that risk while freeing technologists to focus on interpretation and quality, not data entry.</p>
+    <p class="lead-copy">In most laboratory systems, "we bought a new analyzer" starts a procurement conversation with the software vendor — a quote, a timeline, a custom interface build. That's the single most common reason lab results still get retyped by hand in the meantime, and every retyped result is a potential patient-safety event.</p>
+    <p class="lead-copy" style="margin-top:16px;">OpenELIS removes the vendor from that loop entirely. Because the protocol drivers are generic rather than per-instrument, the work of adding an analyzer is configuration your own staff can do — and because it's open source, nobody can charge you for the privilege.</p>
   </div>
 </section>
 
+<!-- THE CORE CLAIM -->
 <section class="section soft">
   <div class="wrap">
-    <h2 class="center">How it works</h2>
+    <h2 class="center">Three drivers cover essentially every analyzer</h2>
+    <p class="lead-copy" style="text-align:center; max-width:760px; margin:0 auto 36px;">Rather than a bespoke integration per instrument, OpenELIS provides configurable drivers per <em>protocol</em>. Point one at your analyzer, give it a pattern to recognise the instrument by, map the test codes, and it's connected.</p>
     <div class="grid">
       <div class="card">
-        <span class="badge"><span class="ic" style="--i:url('/_assets/icons/connect.svg')"></span></span>
-        <h3>Bidirectional communication</h3>
-        <p>Send pending test lists to analyzers and receive results back automatically. Work orders download; results upload — no manual step in between.</p>
-      </div>
-      <div class="card">
         <span class="badge"><span class="ic" style="--i:url('/_assets/icons/network--3.svg')"></span></span>
-        <h3>Broad protocol support</h3>
-        <p>ASTM E1381/E1394 (LIS2-A2) and HL7 v2.5.1 cover the vast majority of instruments, with CSV/flat-file import for legacy and point-of-care devices.</p>
+        <h3>Generic ASTM</h3>
+        <p>ASTM E1394 / E1381 (LIS2-A2) over TCP/IP — the standard that chemistry, hematology, coagulation, and microbiology instruments have spoken for thirty years. Any conforming analyzer connects through this driver.</p>
       </div>
       <div class="card">
-        <span class="badge"><span class="ic" style="--i:url('/_assets/icons/rule.svg')"></span></span>
-        <h3>Visual field mapping</h3>
-        <p>Map analyzer test codes to OpenELIS tests through a graphical interface — no programming. Add new analyzers in hours, not weeks, without a server restart.</p>
+        <span class="badge"><span class="ic" style="--i:url('/_assets/icons/connect.svg')"></span></span>
+        <h3>Generic HL7</h3>
+        <p>HL7 v2.x over MLLP — the hospital-integration standard. Modern analyzers and middleware that emit ORU result messages connect through this driver, no instrument-specific adapter required.</p>
       </div>
       <div class="card">
-        <span class="badge"><span class="ic" style="--i:url('/_assets/icons/checkmark--outline.svg')"></span></span>
-        <h3>Quality control built in</h3>
-        <p>Instrument QC status, Levey-Jennings charts, and Westgard-rule monitoring surface right alongside the analyzer connection.</p>
+        <span class="badge"><span class="ic" style="--i:url('/_assets/icons/document.svg')"></span></span>
+        <h3>Generic File</h3>
+        <p>CSV, Excel, and XML exports — for point-of-care devices, legacy instruments, and closed systems that produce a file but have no live interface at all. Upload or watch a folder.</p>
       </div>
     </div>
   </div>
 </section>
 
+<!-- THE "IT'S JUST MAPPING" STORY -->
 <section class="section">
+  <div class="wrap narrow">
+    <h2>Adding an analyzer is four fields and a mapping table</h2>
+    <p class="lead-copy">The whole process happens in Analyzer Administration. No code, no plugin JAR to compile, no server restart, no ticket to a vendor.</p>
+    <div class="uth" style="margin-top:24px;">
+      <ul>
+        <li><strong>1 · Name the instrument and pick its protocol.</strong> ASTM, HL7, or file — that choice selects the driver.</li>
+        <li><strong>2 · Give it an identifier pattern.</strong> A simple text pattern (for example <code>GENEXPERT|CEPHEID</code>) that lets the listener recognise which analyzer a message came from, so several instruments can share one port.</li>
+        <li><strong>3 · Map the test codes.</strong> Match the analyzer's own codes — <code>MTB</code>, <code>HGB</code>, <code>ALT</code> — to your OpenELIS test definitions. This is the actual work, and it's a table.</li>
+        <li><strong>4 · Set it live.</strong> Save in Setup while you validate, then flip the status to Active. Results start flowing to the Validation queue with the analyzer name, lot, and timestamp attached.</li>
+      </ul>
+    </div>
+    <p class="why"><strong>Why it matters —</strong> "We already own that analyzer" is never a blocker, and neither is "we're buying a new one next year." The lab configures it. Nobody waits on a release, and nobody pays for an interface.</p>
+    <div class="grid" style="margin-top:24px;">
+      <figure class="card" style="padding:0; overflow:hidden;"><div class="shot-hero"><img src="/assets/screenshots/analyzer-integration/analyzer-integration-config-default.png" alt="Analyzer protocol driver configuration in OpenELIS"></div><figcaption style="padding:16px 20px;"><strong>Protocol drivers</strong> — Generic ASTM, HL7, and File, each configurable to many instruments without custom code.</figcaption></figure>
+      <figure class="card" style="padding:0; overflow:hidden;"><div class="shot-hero"><img src="/assets/screenshots/features/Analyzer-mapping.png" alt="Analyzer field mapping table"></div><figcaption style="padding:16px 20px;"><strong>Field mapping</strong> — match analyzer codes to OpenELIS tests in a table. This is the whole job.</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- VERIFIED PROFILES — supporting evidence -->
+<section class="section soft">
   <div class="wrap">
-    <h2>Pre-configured instruments — and a plugin model for the rest</h2>
-    <p class="lead-copy">Common analyzers like GeneXpert, Sysmex, Cobas, and QuantStudio ship with ready-to-use mappings you can deploy immediately. For anything else, OpenELIS uses a modular plugin architecture — each analyzer type has its own hot-deployable plugin, and you can develop custom plugins for any ASTM-, HL7-, or file-based instrument.</p>
-    <p class="why"><strong>Why it matters —</strong> "We already own that analyzer" is never a blocker. If it speaks ASTM, HL7, or exports a file, OpenELIS can take its results — and the open plugin model means the community keeps expanding the list.</p>
-    <figure class="shot shot-hero" style="margin-top:20px;"><img src="/assets/screenshots/features/Analyzer-mapping.png" alt="ASTM field mapping configuration"></figure>
+    <h2>Profiles that already ship</h2>
+    <p class="lead-copy" style="max-width:820px;">You don't have to start from a blank form. OpenELIS ships ready-made profiles for instruments common in the labs we work with — pick one, adjust the test mappings to your menu, done. The list grows with every deployment, and it's a starting point, not a limit: an instrument not on this list connects the same way, it just needs its mapping table filled in.</p>
+
+    <div class="grid" style="margin-top:24px;">
+      <div class="card">
+        <h3>ASTM</h3>
+        <p style="margin-bottom:0;">Cepheid GeneXpert · Sysmex XN Series (XN-L, XN-1000) · Mindray BA-88A · Horiba ABX Micros 60 · Horiba ABX Pentra 60 C+ · Stago STart 4</p>
+      </div>
+      <div class="card">
+        <h3>HL7</h3>
+        <p style="margin-bottom:0;">Mindray BS-200 · Mindray BS-300 · Mindray BS-360E · Mindray BC-5380 · Mindray BC2000 · Abbott Architect · Cepheid GeneXpert</p>
+      </div>
+      <div class="card">
+        <h3>File / export</h3>
+        <p style="margin-bottom:0;">Thermo QuantStudio QS5/QS7 · Bruker FluoroCycler XT · Thermo Multiskan FC · Tecan Infinite F50 · Wondfo Finecare FS-205 · DNA Technology DT-Prime · Cepheid GeneXpert (CSV)</p>
+      </div>
+    </div>
+
+    <p class="lead-copy" style="margin-top:24px; max-width:820px;">Across chemistry, hematology, molecular, immunology, and coagulation — from eleven manufacturers. Additional instruments have integration specifications written and are working through validation.</p>
+
+    <figure class="shot shot-hero" style="margin-top:24px;"><img src="/assets/screenshots/analyzer-integration/analyzer-integration-instruments-list.png" alt="Analyzer list in OpenELIS showing connected instruments across hematology, molecular, chemistry, immunology, and coagulation"></figure>
+    <p style="font-size:14px; color:var(--ink-soft); margin-top:12px;">The analyzer list in a running instance — instruments across five clinical domains, each with protocol, status, and test-unit mapping.</p>
+  </div>
+</section>
+
+<!-- REAL-WORLD VALIDATION -->
+<section class="section">
+  <div class="wrap narrow">
+    <h2>Validated against real instrument output</h2>
+    <p class="lead-copy">A protocol specification is not the same as a working connection. Several OpenELIS analyzer profiles have been validated against real export files and live message captures from production laboratories — not just written from vendor documentation.</p>
+    <p class="lead-copy" style="margin-top:16px;">The Thermo QuantStudio profile, for example, was validated at a Madagascar reference laboratory against three real export files covering 188 patients. The Tecan Infinite F50, Thermo Multiskan FC, and Bruker FluoroCycler XT profiles were likewise built and checked against genuine exports from that site — including the messy realities vendor docs omit, like locale-specific decimal separators and lab-built spreadsheet templates.</p>
+    <p class="why"><strong>Why it matters —</strong> The gap between "conforms to the standard" and "works with your actual instrument, in your actual lab, in your locale" is where integration projects die. Profiles proven against production output close it.</p>
+  </div>
+</section>
+
+<section class="section soft">
+  <div class="wrap">
+    <h2 class="center">And once it's connected</h2>
+    <div class="grid">
+      <div class="card">
+        <span class="badge"><span class="ic" style="--i:url('/_assets/icons/connect.svg')"></span></span>
+        <h3>Bidirectional</h3>
+        <p>Send pending worklists down to the analyzer and receive results back automatically. Orders download, results upload, no manual step in between.</p>
+      </div>
+      <div class="card">
+        <span class="badge"><span class="ic" style="--i:url('/_assets/icons/checkmark--outline.svg')"></span></span>
+        <h3>Quality control built in</h3>
+        <p>Instrument QC status, Levey-Jennings charts, and Westgard-rule monitoring surface alongside the connection — control samples route to QC review, not the patient queue.</p>
+      </div>
+      <div class="card">
+        <span class="badge"><span class="ic" style="--i:url('/_assets/icons/dashboard.svg')"></span></span>
+        <h3>Errors surfaced, not buried</h3>
+        <p>A dedicated error dashboard shows failed messages and parse problems per instrument, so a silently disconnected analyzer doesn't become a week of missing results.</p>
+      </div>
+    </div>
   </div>
 </section>
 
 <div class="cta-band">
-  <h2>Ready to connect your lab equipment?</h2>
-  <p>Eliminate manual data entry and monitor quality control in real time.</p>
-  <a class="btn btn-orange" href="/getting-started/demo/">Request a demo</a>
-  <a class="btn btn-ghost" href="https://uwdigi.atlassian.net/wiki/spaces/oeg/pages/239829012/Analyzers" style="margin-left:12px;">Setup guide</a>
+  <h2>Have an instrument you need connected?</h2>
+  <p>Bring the analyzer, a vendor interface document, or even just a sample export file — that's usually all it takes to get a profile working.</p>
+  <a class="btn btn-orange" href="/getting-started/contact/">Talk to us</a>
+  <a class="btn btn-ghost" href="/getting-started/demo/" style="margin-left:12px;">Try the demo</a>
 </div>
