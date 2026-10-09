@@ -77,6 +77,21 @@
   </main>
 
   <footer class="site-footer">
+    <!--nl-footer:start--><!--nl:start-->
+    <div class="nl-footer">
+      <div>
+        <h4>The OpenELIS quarterly</h4>
+        <p>Releases, new deployments, and community news. Four emails a year.</p>
+      </div>
+      <form action="{{MC_ACTION}}" method="post" target="_blank">
+        <label for="nl-footer-email" class="sr-only">Email address</label>
+        <input id="nl-footer-email" type="email" name="EMAIL" placeholder="you@organization.org" required autocomplete="email">
+        <input type="hidden" name="SOURCE" value="footer">
+        <span class="nl-hp" aria-hidden="true"><input type="text" name="{{MC_HONEYPOT}}" tabindex="-1" value="" autocomplete="off"></span>
+        <button type="submit" class="btn btn-orange">Subscribe</button>
+      </form>
+    </div>
+    <!--nl:end--><!--nl-footer:end-->
     <div class="cols">
       <div>
         <h4>Project</h4>
