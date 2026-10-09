@@ -16,6 +16,34 @@ const DIST = path.join(ROOT, 'dist');
 
 const base = fs.readFileSync(path.join(SITE, '_layout', 'base.html'), 'utf8');
 
+// ---------- Newsletter signup (Mailchimp-hosted list) ----------
+// Paste `action` and `honeypot` from Mailchimp's embedded-form code (archive is optional). Setup steps: docs/newsletter-setup.md
+// While `action` is empty, every newsletter block is left out of the build, so this is safe to ship unconfigured.
+const NEWSLETTER = {
+  action: 'https://openelis-global.us6.list-manage.com/subscribe/post?u=e066b7de317f420568896d196&id=b7e36f0257&f_id=00d94be0f0', // form action URL
+  honeypot: 'b_e066b7de317f420568896d196_b7e36f0257', // bot-trap field name from the same code
+  archive: '',  // optional: public campaign archive URL, shown as "Read past issues"
+};
+const nlOn = /^https:\/\/[\w.-]+\.list-manage\.com\/subscribe\/post\?/.test(NEWSLETTER.action) && /^b_\w+$/.test(NEWSLETTER.honeypot);
+if (!nlOn) console.warn('Newsletter: Mailchimp not configured in site/build.mjs, signup forms omitted.');
+const nlPartial = fs.readFileSync(path.join(SITE, '_layout', 'newsletter-signup.html'), 'utf8').replace(/^<!--[\s\S]*?-->\s*/, ''); // drop the usage comment
+const attr = s => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;');
+const unmark = html => html.replace(/<!--nl(-[\w-]+)?:(start|end)-->/g, '');
+const strip = (html, name) => html.replace(new RegExp(`<!--${name}:start-->[\\s\\S]*?<!--${name}:end-->`, 'g'), '');
+
+// Expands {{NEWSLETTER:source}} into the signup card, fills Mailchimp values, and drops blocks that don't apply.
+// Pages with their own signup card set "newsletterFooter": false in meta to hide the footer form.
+function newsletter(html, meta) {
+  if (meta.newsletterFooter === false) html = strip(html, 'nl-footer');
+  if (!nlOn) return unmark(strip(html, 'nl').replace(/{{NEWSLETTER:[\w-]+}}/g, ''));
+  html = html.replace(/{{NEWSLETTER:([\w-]+)}}/g, (_, src) => nlPartial.replace(/{{SRC}}/g, src));
+  if (!NEWSLETTER.archive) html = strip(html, 'nl-archive');
+  return unmark(html)
+    .replace(/{{MC_ACTION}}/g, () => attr(NEWSLETTER.action))
+    .replace(/{{MC_HONEYPOT}}/g, () => attr(NEWSLETTER.honeypot))
+    .replace(/{{MC_ARCHIVE}}/g, () => attr(NEWSLETTER.archive));
+}
+
 function rmrf(p) { fs.rmSync(p, { recursive: true, force: true }); }
 function cp(src, dst) {
   // Manual walk-copy: fs.cpSync tries to preserve dir metadata, which the
@@ -62,13 +90,13 @@ for (const file of pages) {
   catch (e) { console.error('BAD META in', file, e.message); process.exitCode = 1; continue; }
 
   const content = raw.slice(m[0].length).trim();
-  const html = base
+  const html = newsletter(base
     .replace(/{{TITLE}}/g, meta.title || 'OpenELIS Global')
     .replace(/{{DESC}}/g, (meta.desc || '').replace(/"/g, '&quot;'))
     .replace(/{{PATH}}/g, meta.path || '/')
     .replace(/{{OG_IMAGE}}/g, meta.og || '/_assets/og-default.png')
     .replace('{{CONTENT}}', content)
-    .replace('<body>', `<body data-active="${meta.active || ''}">`);
+    .replace('<body>', `<body data-active="${meta.active || ''}">`), meta);
 
   const outDir = path.join(DIST, meta.path || '/');
   fs.mkdirSync(outDir, { recursive: true });

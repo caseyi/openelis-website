@@ -1,0 +1,38 @@
+<!-- Newsletter signup card. Insert in a page with {{NEWSLETTER:source}}, where `source` (e.g. home) is saved
+     to the subscriber's SOURCE field so you can see which placement converts. Wrap the surrounding section
+     in the nl start/end comment markers (see site/build.mjs) so it drops out cleanly when Mailchimp isn't configured. -->
+<div class="nl-card">
+  <div class="nl-copy">
+    <h2>Get the OpenELIS quarterly</h2>
+    <p>Release highlights, new national deployments, roadmap updates, and ways to get involved. Four emails a year, nothing more.</p>
+    <!--nl-archive:start--><p><a class="demo-link" href="{{MC_ARCHIVE}}">Read past issues →</a></p><!--nl-archive:end-->
+  </div>
+  <form class="nl-form" action="{{MC_ACTION}}" method="post" target="_blank">
+    <div class="form-grid">
+      <div class="field full">
+        <label for="nl-{{SRC}}-email">Email <span class="req" aria-hidden="true">*</span></label>
+        <input id="nl-{{SRC}}-email" name="EMAIL" type="email" required autocomplete="email">
+      </div>
+      <div class="field">
+        <label for="nl-{{SRC}}-fname">First name</label>
+        <input id="nl-{{SRC}}-fname" name="FNAME" type="text" autocomplete="given-name">
+      </div>
+      <div class="field">
+        <label for="nl-{{SRC}}-lname">Last name</label>
+        <input id="nl-{{SRC}}-lname" name="LNAME" type="text" autocomplete="family-name">
+      </div>
+      <div class="field">
+        <label for="nl-{{SRC}}-org">Organization</label>
+        <input id="nl-{{SRC}}-org" name="ORG" type="text" autocomplete="organization">
+      </div>
+      <div class="field">
+        <label for="nl-{{SRC}}-country">Country</label>
+        <input id="nl-{{SRC}}-country" name="COUNTRY" type="text" autocomplete="country-name">
+      </div>
+    </div>
+    <input type="hidden" name="SOURCE" value="{{SRC}}">
+    <div class="nl-hp" aria-hidden="true"><input type="text" name="{{MC_HONEYPOT}}" tabindex="-1" value="" autocomplete="off"></div>
+    <p style="margin:18px 0 0;"><button type="submit" class="btn btn-orange">Subscribe</button></p>
+    <p class="form-note">We'll send one email to confirm your address. Unsubscribe anytime. The newsletter is delivered through Mailchimp.</p>
+  </form>
+</div>
