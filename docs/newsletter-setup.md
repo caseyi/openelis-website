@@ -26,6 +26,14 @@ Pages that carry the full card set `"newsletterFooter": false` in their meta com
 
 The card markup lives in `site/_layout/newsletter-signup.html`; styles are under "Newsletter signup" in `site/_assets/site.css`.
 
+## Current configuration (October 2026)
+
+- Account data center `us6`, audience **OpenELIS Global** (audience ID `b7e36f0257`), embedded form "openelis-global.org website".
+- From name "OpenELIS Global", from/reply-to `digit@uw.edu`. uw.edu's DMARC policy is `p=none`, so Mailchimp can send as uw.edu; moving to an authenticated `openelis-global.org` sender later would improve deliverability.
+- Double opt-in on; reCAPTCHA on for double opt-in forms (subscribers may see a Mailchimp captcha page after submitting).
+- Fields: the default Company field was renamed to Organization with merge tag `ORG`; `COUNTRY` and `SOURCE` added.
+- Hosted signup page for emails and slides: https://openelis-global.us6.list-manage.com/subscribe?u=e066b7de317f420568896d196&id=b7e36f0257
+
 ## One-time Mailchimp setup
 
 Mailchimp moves menu items around now and then, so treat the paths below as a guide.

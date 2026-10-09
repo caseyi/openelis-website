@@ -20,8 +20,8 @@ const base = fs.readFileSync(path.join(SITE, '_layout', 'base.html'), 'utf8');
 // Paste `action` and `honeypot` from Mailchimp's embedded-form code (archive is optional). Setup steps: docs/newsletter-setup.md
 // While `action` is empty, every newsletter block is left out of the build, so this is safe to ship unconfigured.
 const NEWSLETTER = {
-  action: '',   // form action URL, e.g. https://openelis-global.us21.list-manage.com/subscribe/post?u=abc123&id=def456&f_id=00a1b2
-  honeypot: '', // bot-trap field name from the same code, e.g. b_abc123_def456
+  action: 'https://openelis-global.us6.list-manage.com/subscribe/post?u=e066b7de317f420568896d196&id=b7e36f0257&f_id=00d94be0f0', // form action URL
+  honeypot: 'b_e066b7de317f420568896d196_b7e36f0257', // bot-trap field name from the same code
   archive: '',  // optional: public campaign archive URL, shown as "Read past issues"
 };
 const nlOn = /^https:\/\/[\w.-]+\.list-manage\.com\/subscribe\/post\?/.test(NEWSLETTER.action) && /^b_\w+$/.test(NEWSLETTER.honeypot);
